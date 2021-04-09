@@ -14,7 +14,7 @@ namespace lasd {
 /* ************************************************************************** */
 
 template <typename Data>
-class StackVec { // Must extend Stack<Data> and Vector<Data>
+class StackVec { // Must extend Stack<Data> and protected:Vector<Data>
 
 private:
 
@@ -23,7 +23,7 @@ private:
 protected:
 
   // using Vector<Data>::???;
-
+  // int indice; quando si richiama push --> indice ++, quando si richiama pop --> indice --;
   // ...
 
 public:
@@ -67,10 +67,10 @@ public:
 
   // Specific member functions (inherited from Stack)
 
-  // type Push(argument) specifiers; // Override Stack member (copy of the value)
+  // type Push(argument) specifiers; // Override Stack member (copy of the value) fare il test estensione
   // type Push(argument) specifiers; // Override Stack member (move of the value)
   // type Top() specifiers; // Override Stack member (must throw std::length_error when empty)
-  // type Pop() specifiers; // Override Stack member (must throw std::length_error when empty)
+  // type Pop() specifiers; // Override Stack member (must throw std::length_error when empty) decrementa l'indice, senza cancellare, verà sovrascritto poi, fare il test riduzione
   // type TopNPop() specifiers; // Override Stack member (must throw std::length_error when empty)
 
   /* ************************************************************************ */
@@ -80,11 +80,9 @@ public:
   // type Empty() specifiers; // Override Container member
 
   // type Size() specifiers; // Override Container member
-
   // type Clear() specifiers; // Override Container member
 
 protected:
-
   // Auxiliary member functions
 
   // type Expand() specifiers;

@@ -14,7 +14,7 @@ namespace lasd {
 /* ************************************************************************** */
 
 template <typename Data>
-class StackLst { // Must extend Stack<Data> and List<Data>
+class StackLst{ // Must extend public:Stack<Data>(virtuale) and protected:List<Data>
 
 private:
 
@@ -22,13 +22,14 @@ private:
 
 protected:
 
-  // using List<Data>::???;
+  // using List<Data>::???; riferimento a size, oppure ad altro
 
   // ...
 
 public:
 
-  // Default constructor
+  // Default constructor, senza parametri.
+
   // StackLst() specifier;
 
   /* ************************************************************************ */
@@ -67,6 +68,7 @@ public:
 
   // Specific member functions (inherited from Stack)
 
+  //metodi pubblici, fare ovverride
   // type Push(argument) specifiers; // Override Stack member (copy of the value)
   // type Push(argument) specifiers; // Override Stack member (move of the value)
   // type Top() specifiers; // Override Stack member (must throw std::length_error when empty)
@@ -78,6 +80,7 @@ public:
   // Specific member functions (inherited from Container)
 
   // type Clear() specifiers; // Override Container member
+  // non ci sarà motivo di fare l'ovveride di empty e size
 
 };
 

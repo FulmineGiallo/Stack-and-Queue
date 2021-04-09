@@ -23,9 +23,11 @@ private:
 protected:
 
   // using Vector<Data>::???;
-
+  // due indici;
+  // int head, int tail;
   // ...
-
+  //si parte da 1, cosi abbiamo la pos 0 come sentinella per il resize
+  
 public:
 
   // Default constructor
@@ -90,7 +92,7 @@ protected:
   // type Expand() specifiers;
   // type Reduce() specifiers;
   // type SwapVectors(arguments) specifiers;
-
+  // bisogna fare un vettore circolare
 };
 
 /* ************************************************************************** */
