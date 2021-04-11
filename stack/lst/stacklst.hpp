@@ -14,8 +14,8 @@ namespace lasd {
 /* ************************************************************************** */
 
 template <typename Data>
-class StackLst
-{ // Must extend public:Stack<Data>(virtuale) and protected:List<Data>
+class StackLst: virtual public Stack<Data>, virtual protected List<Data>
+{
 
 private:
 
@@ -23,8 +23,11 @@ private:
 
 protected:
 
-  // using List<Data>::size; riferimento a size, oppure ad altro
-  // using List<Data>::testa; riferimento a testa per implementare lo stack
+  using List<Data>::size; //riferimento a size, oppure ad altro
+  using List<Data>::testa; //riferimento a testa per implementare lo stack
+
+  //Nello stackLst, gli inserimenti Push() avvengono tramite InsertAtBack().
+  //Nello stackLst, le  rimozioni    Pop()  avvengono tramite RemoveFromFront().
 
 public:
 
