@@ -22,9 +22,8 @@ private:
 
 protected:
 
-  // using Vector<Data>::???;
-  // int indice; quando si richiama push --> indice ++, quando si richiama pop --> indice --;
-  // ...
+  using Vector<Data>::size;
+  int indice; //quando si richiama push --> indice ++, quando si richiama pop --> indice --;
 
 public:
 
