@@ -14,7 +14,8 @@ namespace lasd {
 /* ************************************************************************** */
 
 template <typename Data>
-class StackVec { // Must extend Stack<Data> and protected:Vector<Data>
+class StackVec: virtual public Stack<Data>, virtual protected Vector<Data>
+{ 
 
 private:
 
@@ -22,7 +23,7 @@ private:
 
 protected:
 
-  //using Vector<Data>::size;
+  using Vector<Data>::size;
   int indice = 0; //quando si richiama push --> indice ++, quando si richiama pop --> indice --;
 
 public:
