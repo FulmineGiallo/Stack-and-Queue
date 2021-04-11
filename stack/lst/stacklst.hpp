@@ -44,7 +44,7 @@ public:
   StackLst(const StackLst&);
 
   // Move constructor
-  StackLst(StackLst&&) noexcpet;
+  StackLst(StackLst&&) noexcept;
 
 
   /* ************************************************************************ */
@@ -57,13 +57,13 @@ public:
   bool operator=(const StackLst&);
 
   // Move assignment
-  bool operator=(StackLst&&) noexcpet;
+  bool operator=(StackLst&&) noexcept;
 
   /* ************************************************************************ */
 
   // Comparison operators
-  bool operator==(const StackLst&) const noexcpet;
-  bool operator!=(const StackLst&) const noexcpet;
+  bool operator==(const StackLst&) const noexcept;
+  bool operator!=(const StackLst&) const noexcept;
 
   /* ************************************************************************ */
 

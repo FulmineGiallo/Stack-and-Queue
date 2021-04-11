@@ -22,7 +22,7 @@ private:
 
 protected:
 
-  using Vector<Data>::size;
+  //using Vector<Data>::size;
   int indice = 0; //quando si richiama push --> indice ++, quando si richiama pop --> indice --;
 
 public:
@@ -41,7 +41,7 @@ public:
   StackVec(const StackVec&);
 
   // Move constructor
-  StackVec(StackVec&&) noexcpet;
+  StackVec(StackVec&&) noexcept;
 
   /* ************************************************************************ */
   // Destructor
@@ -53,13 +53,13 @@ public:
   bool operator=(const StackVec&);
 
   // Move assignment
-  bool operator=(StackVec&&) noexcpet;
+  bool operator=(StackVec&&) noexcept;
 
   /* ************************************************************************ */
 
   // Comparison operators
-  bool operator==(const StackVec&) const noexcpet;
-  bool operator!=(const StackVec&) const noexcpet;
+  bool operator==(const StackVec&) const noexcept;
+  bool operator!=(const StackVec&) const noexcept;
 
   /* ************************************************************************ */
 
