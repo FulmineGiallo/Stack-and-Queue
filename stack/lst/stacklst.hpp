@@ -14,7 +14,8 @@ namespace lasd {
 /* ************************************************************************** */
 
 template <typename Data>
-class StackLst{ // Must extend public:Stack<Data>(virtuale) and protected:List<Data>
+class StackLst
+{ // Must extend public:Stack<Data>(virtuale) and protected:List<Data>
 
 private:
 
@@ -22,47 +23,47 @@ private:
 
 protected:
 
-  // using List<Data>::???; riferimento a size, oppure ad altro
-
-  // ...
+  // using List<Data>::size; riferimento a size, oppure ad altro
+  // using List<Data>::testa; riferimento a testa per implementare lo stack
 
 public:
 
   // Default constructor, senza parametri.
+  StackLst() = default;
 
   // StackLst() specifier;
 
   /* ************************************************************************ */
 
   // Specific constructor
-  // StackLst(argument) specifiers; // A stack obtained from a LinearContainer
+  StackLst(const LinearContainer<Data>& con);
 
   /* ************************************************************************ */
 
   // Copy constructor
-  // StackLst(argument);
+  StackLst(const StackLst&);
 
   // Move constructor
-  // StackLst(argument);
+  StackLst(StackLst&&) noexcpet;
+
 
   /* ************************************************************************ */
-
   // Destructor
-  // ~StackLst() specifier;
+   ~StackLst();
 
   /* ************************************************************************ */
 
   // Copy assignment
-  // type operator=(argument);
+  bool operator=(const StackLst&);
 
   // Move assignment
-  // type operator=(argument);
+  bool operator=(StackLst&&) noexcpet;
 
   /* ************************************************************************ */
 
   // Comparison operators
-  // type operator==(argument) specifiers;
-  // type operator!=(argument) specifiers;
+  bool operator==(const StackLst&) const noexcpet;
+  bool operator!=(const StackLst&) const noexcpet;
 
   /* ************************************************************************ */
 
