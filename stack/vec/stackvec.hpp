@@ -15,7 +15,7 @@ namespace lasd {
 
 template <typename Data>
 class StackVec: virtual public Stack<Data>, virtual protected Vector<Data>
-{ 
+{
 
 private:
 
@@ -57,7 +57,6 @@ public:
   bool operator=(StackVec&&) noexcept;
 
   /* ************************************************************************ */
-
   // Comparison operators
   bool operator==(const StackVec&) const noexcept;
   bool operator!=(const StackVec&) const noexcept;
@@ -66,11 +65,13 @@ public:
 
   // Specific member functions (inherited from Stack)
 
-  // type Push(argument) specifiers; // Override Stack member (copy of the value) fare il test estensione
-  // type Push(argument) specifiers; // Override Stack member (move of the value)
-  // type Top() specifiers; // Override Stack member (must throw std::length_error when empty)
-  // type Pop() specifiers; // Override Stack member (must throw std::length_error when empty) decrementa l'indice, senza cancellare, verà sovrascritto poi, fare il test riduzione
-  // type TopNPop() specifiers; // Override Stack member (must throw std::length_error when empty)
+  void Push(const Data& val) override; // Override Stack member (copy of the value) fare il test estensione
+  void Push(Data&& val) noexcept; // Override Stack member (move of the value)
+  /****************************************/
+
+  Data& Top() const override; // Override Stack member (must throw std::length_error when empty)
+  void Pop() override; // Override Stack member (must throw std::length_error when empty) decrementa l'indice, senza cancellare, verà sovrascritto poi, fare il test riduzione
+  Data TopNPop() override; // Override Stack member (must throw std::length_error when empty)
 
   /* ************************************************************************ */
 
