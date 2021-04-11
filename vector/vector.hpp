@@ -1,4 +1,3 @@
-
 #ifndef VECTOR_HPP
 #define VECTOR_HPP
 
@@ -8,106 +7,100 @@
 
 /* ************************************************************************** */
 
-namespace lasd {
+namespace lasd
+{
 
-/* ************************************************************************** */
+  template <typename Data>
+  class Vector: virtual public LinearContainer<Data>,
+                virtual public MappableContainer<Data>,
+                virtual public FoldableContainer<Data> {
 
-template <typename Data>
-class Vector { // Must extend LinearContainer<Data>, MappableContainer<Data>, and FoldableContainer<Data>
+    private:
 
-private:
 
-  // ...
 
-protected:
+    protected:
 
-  // using LinearContainer<Data>::???;
+      using LinearContainer<Data>::size;
+      Data* Elements = nullptr;
 
-  // ...
+    public:
 
-public:
+      // Default constructor
+      Vector() = default;
 
-  // Default constructor
-  // Vector() specifiers;
+      /* ************************************************************************ */
 
-  /* ************************************************************************ */
+      // Specific constructors
+      Vector(unsigned long);
+      Vector(const LinearContainer<Data>&);
 
-  // Specific constructors
-  // Vector(argument) specifiers; // A vector with a given initial dimension
-  // Vector(argument) specifiers; // A vector obtained from a LinearContainer
+      /* ************************************************************************ */
 
-  /* ************************************************************************ */
+      // Copy constructor
+      Vector(const Vector&);
 
-  // Copy constructor
-  // Vector(argument) specifiers;
+      // Move constructor
+      Vector(Vector&&) noexcept;
 
-  // Move constructor
-  // Vector(argument) specifiers;
+      /* ************************************************************************ */
 
-  /* ************************************************************************ */
+      // Destructor
+      virtual ~Vector();
 
-  // Destructor
-  // ~Vector() specifiers;
+      /* ************************************************************************ */
 
-  /* ************************************************************************ */
+      // Copy assignment
+      Vector& operator=(const Vector&);
 
-  // Copy assignment
-  // type operator=(argument) specifiers;
+      // Move assignment
+      Vector& operator=(Vector&&) noexcept;
 
-  // Move assignment
-  // type operator=(argument) specifiers;
+      /* ************************************************************************ */
 
-  /* ************************************************************************ */
+      // Comparison operators
+      bool operator==(const Vector&) const noexcept;
+      bool operator!=(const Vector&) const noexcept;
 
-  // Comparison operators
-  // type operator==(argument) specifiers;
-  // type operator!=(argument) specifiers;
+      /* ************************************************************************ */
 
-  /* ************************************************************************ */
+      // Specific member functions
+      void Resize(const unsigned long); // Resize the vector to a given size
 
-  // Specific member functions
+      /* ************************************************************************ */
 
-  // type Resize(argument) specifiers; // Resize the vector to a given size
+      // Specific member functions (inherited from Container)
+      void Clear() override; // Override Container member
 
-  /* ************************************************************************ */
+      /* ************************************************************************ */
 
-  // Specific member functions (inherited from Container)
+      // Specific member functions (inherited from LinearContainer)
 
-  // type Clear() specifiers; // Override Container member
+      Data& Front() const override; // Override LinearContainer member (must throw std::length_error when empty)
+      Data& Back() const override; // Override LinearContainer member (must throw std::length_error when empty)
+      Data& operator[](unsigned long) const override; // Override LinearContainer member (must throw std::out_of_range when out of range)
 
-  /* ************************************************************************ */
+      /* ************************************************************************ */
 
-  // Specific member functions (inherited from LinearContainer)
+      // Specific member functions (inherited from MappableContainer)
+      using typename MappableContainer<Data>::MapFunctor;
 
-  // type Front() specifiers; // Override LinearContainer member (must throw std::length_error when empty)
-  // type Back() specifiers; // Override LinearContainer member (must throw std::length_error when empty)
+      void MapPreOrder(const MapFunctor, void*) override; // Override MappableContainer member
+      void MapPostOrder(const MapFunctor, void*) override; // Override MappableContainer member
 
-  // type operator[](argument) specifiers; // Override LinearContainer member (must throw std::out_of_range when out of range)
+      /* ************************************************************************ */
 
-  /* ************************************************************************ */
+      // Specific member functions (inherited from FoldableContainer)
+      using typename FoldableContainer<Data>::FoldFunctor;
 
-  // Specific member functions (inherited from MappableContainer)
+      void FoldPreOrder(const FoldFunctor, const void*, void*) const override; // Override FoldableContainer member
+      void FoldPostOrder(const FoldFunctor, const void*, void*) const override; // Override FoldableContainer member
 
-  // using typename MappableContainer<Data>::MapFunctor;
+      /* ************************************************************************** */
+    
+  };
 
-  // type MapPreOrder(arguments) specifiers; // Override MappableContainer member
-  // type MapPostOrder(arguments) specifiers; // Override MappableContainer member
-
-  /* ************************************************************************ */
-
-  // Specific member functions (inherited from FoldableContainer)
-
-  // using typename FoldableContainer<Data>::FoldFunctor;
-
-  // type FoldPreOrder(arguments) specifiers; // Override FoldableContainer member
-  // type FoldPostOrder(arguments) specifiers; // Override FoldableContainer member
-
-};
-
-/* ************************************************************************** */
-
-}
+} // close namespace lasd
 
 #include "vector.cpp"
-
 #endif

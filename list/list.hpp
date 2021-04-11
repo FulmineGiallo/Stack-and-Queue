@@ -1,19 +1,13 @@
 
 #ifndef LIST_HPP
 #define LIST_HPP
-
-/* ************************************************************************** */
-
 #include "../container/container.hpp"
-
+namespace lasd
+{
 /* ************************************************************************** */
-
-namespace lasd {
-
-/* ************************************************************************** */
-
 template <typename Data>
-class List { // Must extend LinearContainer<Data>, MappableContainer<Data>, and FoldableContainer<Data>
+class List: virtual public LinearContainer<Data>, virtual public MappableContainer<Data>, virtual public FoldableContainer<Data>
+{
 
 private:
 
@@ -21,31 +15,41 @@ private:
 
 protected:
 
-  // using LinearContainer<Data>::???;
+  using LinearContainer<Data>::size;
 
   struct Node
   {
-
-    // Data
-    // ...
-
+    Data element;
+    struct Node *next = nullptr; // si mette a nullptr, per non far andare in memory leak.
     /* ********************************************************************** */
-
+    //Default Constructor
+    Node() = default;
     // Specific constructors
-    // ...
-
+    Node(const Data& value) // costruttore che crea un nuovo nodo.
+    {
+       element = value;
+       next = nullptr;
+    }
     /* ********************************************************************** */
 
     // Copy constructor
-    // ...
+    Node(const Node& node)
+    {
+        element = node.element;
+        next = node.next;
+    }
 
     // Move constructor
-    // ...
+    Node(Node&& node) noexcept
+    {
+        std::swap(element, node.element);
+        std::swap(next, node.next);
+    }
 
     /* ********************************************************************** */
 
     // Destructor
-    // ...
+     ~Node() = default;
 
     /* ********************************************************************** */
 
@@ -59,90 +63,87 @@ protected:
     // ...
 
   };
-
-  // ...
-
 public:
 
+  Node *testa = nullptr;
+  Node *coda  = nullptr;
+  Data valueRemoved;
   // Default constructor
-  // List() specifiers;
-
+  List() = default;
   /* ************************************************************************ */
-
   // Specific constructor
-  // List(argument) specifiers; // A list obtained from a LinearContainer
-
+  List(LinearContainer<Data>& con); // A list obtained from a LinearContainer, costruire una lista partendo da un vettore o una lista (un oggetto di tipo LinearContainer)
+  // DONE
   /* ************************************************************************ */
 
   // Copy constructor
-  // List(argument) specifiers;
+  List(const List&); //DONE
 
   // Move constructor
-  // List(argument) specifiers;
+  List(List&&) noexcept;  //DONE
 
   /* ************************************************************************ */
 
   // Destructor
-  // ~List() specifiers;
+  virtual ~List();
 
   /* ************************************************************************ */
 
   // Copy assignment
-  // type operator=(argument) specifiers;
+  List& operator=(const List&); //DONE
 
   // Move assignment
-  // type operator=(argument) specifiers;
+  List& operator=(List&&) noexcept; //DONE
 
   /* ************************************************************************ */
 
   // Comparison operators
-  // type operator==(argument) specifiers;
-  // type operator!=(argument) specifiers;
+  bool operator==(const List&) const noexcept; //DONE
+  bool operator!=(const List&) const noexcept; //DONE
 
   /* ************************************************************************ */
 
   // Specific member functions
 
-  // type InsertAtFront(argument) specifier; // Copy of the value
-  // type InsertAtFront(argument) specifier; // Move of the value
-  // type RemoveFromFront() specifier; // (must throw std::length_error when empty)
-  // type FrontNRemove() specifier; // (must throw std::length_error when empty)
+  void InsertAtFront(const Data& val); // Copy of the value
+  void InsertAtFront(Data&& val) noexcept; // Move of the value
 
-  // type InsertAtBack(argument) specifier; // Copy of the value
-  // type InsertAtBack(argument) specifier; // Move of the value
+  void RemoveFromFront(); // (must throw std::length_error when empty) rimozione.
+  Data FrontNRemove();   // (must throw std::length_error when empty) rimozione con lettura.
+
+  void InsertAtBack(const Data& val); // Copy of the value
+  void InsertAtBack(Data&& val) noexcept; // Move of the value
 
   /* ************************************************************************ */
 
   // Specific member functions (inherited from Container)
-
-  // type Clear() specifiers; // Override Container member
+  void Clear() override; // Override Container member
 
   /* ************************************************************************ */
 
   // Specific member functions (inherited from LinearContainer)
 
-  // type Front() specifiers; // Override LinearContainer member (must throw std::length_error when empty)
-  // type Back() specifiers; // Override LinearContainer member (must throw std::length_error when empty)
-
-  // type operator[](argument) specifiers; // Override LinearContainer member (must throw std::out_of_range when out of range)
+  Data& Front() const override; // Override LinearContainer member (must throw std::length_error when empty)
+  Data& Back()  const override; // Override LinearContainer member (must throw std::length_error when empty)
+  Data& operator[](const unsigned long) const override; // Override LinearContainer member (must throw std::out_of_range when out of range)
 
   /* ************************************************************************ */
 
   // Specific member functions (inherited from MappableContainer)
 
-  // using typename MappableContainer<Data>::MapFunctor;
+  using typename MappableContainer<Data>::MapFunctor;
 
-  // type MapPreOrder(arguments) specifiers; // Override MappableContainer member
-  // type MapPostOrder(arguments) specifiers; // Override MappableContainer member
+  void MapPreOrder(const MapFunctor, void*) override; // Override MappableContainer member   sx -> dx
+  void MapPostOrder(const MapFunctor, void*) override; // Override MappableContainer member  dx -> sx
 
   /* ************************************************************************ */
 
   // Specific member functions (inherited from FoldableContainer)
 
-  // using typename FoldableContainer<Data>::FoldFunctor;
+  using typename FoldableContainer<Data>::FoldFunctor;
 
-  // type FoldPreOrder(arguments) specifiers; // Override FoldableContainer member
-  // type FoldPostOrder(arguments) specifiers; // Override FoldableContainer member
+  void FoldPreOrder(const FoldFunctor, const void*, void*) const override; // Override FoldableContainer member
+  void FoldPostOrder(const FoldFunctor, const void*,void*) const override; // Override FoldableContainer member
 
 protected:
 
