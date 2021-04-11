@@ -23,44 +23,43 @@ private:
 protected:
 
   using Vector<Data>::size;
-  int indice; //quando si richiama push --> indice ++, quando si richiama pop --> indice --;
+  int indice = 0; //quando si richiama push --> indice ++, quando si richiama pop --> indice --;
 
 public:
 
   // Default constructor
-  // StackVec() specifier;
+  StackVec() = default;
 
   /* ************************************************************************ */
 
   // Specific constructor
-  // StackVec(argument) specifiers; // A stack obtained from a LinearContainer
+  StackVec(const LinearContainer<Data>& con); // A stack obtained from a LinearContainer
 
   /* ************************************************************************ */
 
   // Copy constructor
-  // StackVec(argument);
+  StackVec(const StackVec&);
 
   // Move constructor
-  // StackVec(argument);
+  StackVec(StackVec&&) noexcpet;
 
   /* ************************************************************************ */
-
   // Destructor
-  // ~StackVec() specifier;
+  ~StackVec();
 
   /* ************************************************************************ */
 
   // Copy assignment
-  // type operator=(argument);
+  bool operator=(const StackVec&);
 
   // Move assignment
-  // type operator=(argument);
+  bool operator=(StackVec&&) noexcpet;
 
   /* ************************************************************************ */
 
   // Comparison operators
-  // type operator==(argument) specifiers;
-  // type operator!=(argument) specifiers;
+  bool operator==(const StackVec&) const noexcpet;
+  bool operator!=(const StackVec&) const noexcpet;
 
   /* ************************************************************************ */
 
