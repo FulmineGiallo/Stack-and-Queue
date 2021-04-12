@@ -97,7 +97,7 @@ namespace lasd
       void FoldPostOrder(const FoldFunctor, const void*, void*) const override; // Override FoldableContainer member
 
       /* ************************************************************************** */
-    
+
   };
 
 } // close namespace lasd

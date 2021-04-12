@@ -51,8 +51,8 @@ public:
   // Comparison operators
   // type operator==(argument) specifiers; // Comparison of abstract types might not be possible.
   // type operator!=(argument) specifiers; // Comparison of abstract types might not be possible.
-bool operator==(const Container&) const noexcept = delete;
-bool operator!=(const Container&) const noexcept = delete;
+  bool operator==(const Container&) const noexcept = delete;
+  bool operator!=(const Container&) const noexcept = delete;
 
 /* ************************************************************************ */
 
@@ -60,13 +60,13 @@ bool operator!=(const Container&) const noexcept = delete;
   // type Clear() specifiers;
   virtual void Clear() = 0;
 
-virtual inline bool Empty() const noexcept{
-  return (size==0);
-}
+  virtual inline bool Empty() const noexcept{
+    return (size==0);
+  }
 
-virtual inline unsigned long Size () const noexcept{
-  return size;
-}
+  virtual inline unsigned long Size () const noexcept{
+    return size;
+  }
 
 
 

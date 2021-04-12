@@ -24,12 +24,14 @@ private:
 protected:
 
   using Vector<Data>::size;
-  int indice = 0; //quando si richiama push --> indice ++, quando si richiama pop --> indice --;
+  using Vector<Data>::Elements;
+  int indice = 0;  //quando si richiama push --> indice ++, quando si richiama pop --> indice --;
+  int sentinella = 0;
 
 public:
 
   // Default constructor
-  StackVec() = default;
+  StackVec(); //DONE
 
   /* ************************************************************************ */
 
@@ -46,7 +48,7 @@ public:
 
   /* ************************************************************************ */
   // Destructor
-  ~StackVec();
+  ~StackVec() = default;
 
   /* ************************************************************************ */
 
@@ -65,28 +67,28 @@ public:
 
   // Specific member functions (inherited from Stack)
 
-  void Push(const Data& val) override; // Override Stack member (copy of the value) fare il test estensione
-  void Push(Data&& val) noexcept; // Override Stack member (move of the value)
+  void Push(const Data& val) override; // Override Stack member (copy of the value) fare il test estensione DONE
+  void Push(Data&& val) noexcept override; // Override Stack member (move of the value)
   /****************************************/
 
-  Data& Top() const override; // Override Stack member (must throw std::length_error when empty)
-  void Pop() override; // Override Stack member (must throw std::length_error when empty) decrementa l'indice, senza cancellare, verà sovrascritto poi, fare il test riduzione
-  Data TopNPop() override; // Override Stack member (must throw std::length_error when empty)
+  Data& Top() const override; // Override Stack member (must throw std::length_error when empty) DONE
+  void Pop() override; // Override Stack member (must throw std::length_error when empty) decrementa l'indice, senza cancellare, verà sovrascritto poi, fare il test riduzione DONE
+  Data TopNPop() override; // Override Stack member (must throw std::length_error when empty) DONE
 
   /* ************************************************************************ */
 
   // Specific member functions (inherited from Container)
 
-  // type Empty() specifiers; // Override Container member
+  bool Empty() override; // Override Container member
 
-  // type Size() specifiers; // Override Container member
-  // type Clear() specifiers; // Override Container member
+  unsigned long Size() override; // Override Container member
+  void Clear() override; // Override Container member
 
 protected:
   // Auxiliary member functions
 
-  // type Expand() specifiers;
-  // type Reduce() specifiers;
+  void Expand(); // è void, perchè puoi stackvec.Expand();
+  void Reduce();
 
 };
 
