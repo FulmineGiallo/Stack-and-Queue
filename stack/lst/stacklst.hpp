@@ -24,9 +24,9 @@ private:
 protected:
 
   using List<Data>::size; //riferimento a size, oppure ad altro
-  using List<Data>::testa; //riferimento a testa per implementare lo stack
+  using List<Data>::testa; //riferimento a testa per implementare lo
 
-  //Nello stackLst, gli inserimenti Push() avvengono tramite InsertAtBack().
+  //Nello stackLst, gli inserimenti Push() avvengono tramite insertAtFront().
   //Nello stackLst, le  rimozioni    Pop()  avvengono tramite RemoveFromFront().
 
 public:
@@ -39,51 +39,55 @@ public:
   /* ************************************************************************ */
 
   // Specific constructor
-  StackLst(const LinearContainer<Data>& con);
+  StackLst(const LinearContainer<Data>& con); //DONE
 
   /* ************************************************************************ */
 
   // Copy constructor
-  StackLst(const StackLst&);
+  StackLst(const StackLst<Data>& newStack); //DONE
 
   // Move constructor
-  StackLst(StackLst&&) noexcept;
+  StackLst(StackLst&&) noexcept; //DONE
 
 
   /* ************************************************************************ */
   // Destructor
-   ~StackLst();
+   ~StackLst() = default;
 
   /* ************************************************************************ */
 
   // Copy assignment
-  bool operator=(const StackLst&);
+  StackLst<Data>& operator=(const StackLst&);  //DONE
 
   // Move assignment
-  bool operator=(StackLst&&) noexcept;
+  StackLst<Data>& operator=(StackLst&&) noexcept; //DONE
 
   /* ************************************************************************ */
 
   // Comparison operators
-  bool operator==(const StackLst&) const noexcept;
-  bool operator!=(const StackLst&) const noexcept;
+  bool operator==(const StackLst&) const noexcept; //DONE
+  bool operator!=(const StackLst&) const noexcept; //DONE
 
   /* ************************************************************************ */
 
   // Specific member functions (inherited from Stack)
 
   //metodi pubblici, fare ovverride
-  // type Push(argument) specifiers; // Override Stack member (copy of the value)
-  // type Push(argument) specifiers; // Override Stack member (move of the value)
-  // type Top() specifiers; // Override Stack member (must throw std::length_error when empty)
-  // type Pop() specifiers; // Override Stack member (must throw std::length_error when empty)
-  // type TopNPop() specifiers; // Override Stack member (must throw std::length_error when empty)
+  void Push(const Data& val); // Override Stack member (copy of the value) //DONE
+  void Push(Data&& val); // Override Stack member (move of the value)     //DONE
+
+
+  /****************************************************************************/
+
+  Data& Top() override; // Override Stack member (must throw std::length_error when empty) DONE
+  void Pop()  override; // Override Stack member (must throw std::length_error when empty) DONE
+  Data TopNPop() override; // Override Stack member (must throw std::length_error when empty) DONE
 
   /* ************************************************************************ */
 
   // Specific member functions (inherited from Container)
 
-  // type Clear() specifiers; // Override Container member
+  void Clear() override; // Override Container member DONE
   // non ci sarà motivo di fare l'ovveride di empty e size
 
 };
