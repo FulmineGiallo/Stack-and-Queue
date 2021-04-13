@@ -95,7 +95,8 @@ bool Vector<Data>::operator==(const Vector<Data>& vec) const noexcept{
 
 // Confronto di differenza >> implementato come complemento del confronto di uguaglianza
 template<typename Data>
-inline bool Vector<Data>::operator!=(const Vector<Data>& vec) const noexcept{
+inline bool Vector<Data>::operator!=(const Vector<Data>& vec) const noexcept
+{
   return !(*this == vec);
 }
 

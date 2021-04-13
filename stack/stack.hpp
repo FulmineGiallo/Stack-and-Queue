@@ -50,7 +50,7 @@ public:
   void Push(const Data& val); // Copy of the value
   void Push(Data&& val) noexcept; // Move of the value
   /*****************************************************/
-  Data& Top() const = 0; // (concrete function must throw std::length_error when empty)
+  Data& Top() const;// (concrete function must throw std::length_error when empty)
   void  Pop(); // (concrete function must throw std::length_error when empty)
   Data  TopNPop(); // (concrete function must throw std::length_error when empty)
 

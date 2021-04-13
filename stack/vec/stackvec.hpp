@@ -25,7 +25,7 @@ protected:
 
   using Vector<Data>::size;
   using Vector<Data>::Elements;
-  int indice = 0; // forse dovrebbe essere -1
+  int indice = -1; // forse dovrebbe essere -1
   int sentinella = 0;
 
 public:
@@ -53,22 +53,22 @@ public:
   /* ************************************************************************ */
 
   // Copy assignment
-  StackVec<Data>& operator=(const StackVec<Data>& newVec);
+  StackVec<Data>& operator=(const StackVec<Data>& newVec); //DONE
 
   // Move assignment
-  StackVec<Data>& operator=(StackVec<Data>&& newVec) noexcept;
+  StackVec<Data>& operator=(StackVec<Data>&& newVec) noexcept; //DONE
 
   /* ************************************************************************ */
   // Comparison operators
-  bool operator==(const StackVec<Data>&) const noexcept;
-  bool operator!=(const StackVec<Data>&) const noexcept;
+  bool operator==(const StackVec<Data>&) const noexcept; //
+  bool operator!=(const StackVec<Data>&) const noexcept; //
 
   /* ************************************************************************ */
 
   // Specific member functions (inherited from Stack)
 
   void Push(const Data& val) override; // Override Stack member (copy of the value) fare il test estensione DONE
-  void Push(Data&& val) noexcept override; // Override Stack member (move of the value)
+  void Push(Data&& val) noexcept override; // Override Stack member (move of the value) DONE
   /****************************************/
 
   Data& Top() const override; // Override Stack member (must throw std::length_error when empty) DONE
@@ -78,14 +78,12 @@ public:
   /* ************************************************************************ */
 
   // Specific member functions (inherited from Container)
-
-  bool Empty() override; // Override Container member
-  unsigned long Size() override; // Override Container member
-  void Clear() override; // Override Container member
+  bool Empty() override; // Override Container member     DONE
+  unsigned long Size() override; // Override Container member DONE
+  void Clear() override; // Override Container member DONE
 
 protected:
   // Auxiliary member functions
-
   void Expand(); // è void, perchè puoi stackvec.Expand();
   void Reduce();
 

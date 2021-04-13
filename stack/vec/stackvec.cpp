@@ -144,7 +144,47 @@ void StackVec<Data>::Reduce()
 {
     Resize(size - (size / 4));
 }
+//operator ==
+template <typename Data>
+bool StackVec<Data>::operator==(const StackVec<Data>& newVec) const noexcept
+{
+  if(sentinella < newVec.sentinella || sentinella > newVec.sentinella)
+    return false;
+  if(sentinella == newVec.sentinella)
+  {
+    if(this == newVec.Elements)
+      return true;
+    else
+      return false;
+  }
+}
+//operator !=
+template <typename Data>
+bool StackVec<Data>::operator!=(const StackVec<Data>& newVec) const noexcept
+{
+  return !(this == newVec);
+}
 
+template <typename Data>
+bool StackVec<Data>::Empty()
+{
+  if(indice < 0)
+    return false;
+  else
+    return true;
+}
+
+template <typename Data>
+unsigned long StackVec<Data>::Size()
+{
+  return sentinella;
+}
+
+template <typename Data>
+void StackVec<Data>::Clear()
+{
+  Vector<Data>::Clear();
+}
 /* ************************************************************************** */
 
 }
