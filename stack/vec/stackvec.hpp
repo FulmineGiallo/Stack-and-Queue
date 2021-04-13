@@ -25,7 +25,7 @@ protected:
 
   using Vector<Data>::size;
   using Vector<Data>::Elements;
-  int indice = 0;  //quando si richiama push --> indice ++, quando si richiama pop --> indice --;
+  int indice = 0; // forse dovrebbe essere -1
   int sentinella = 0;
 
 public:
@@ -36,15 +36,15 @@ public:
   /* ************************************************************************ */
 
   // Specific constructor
-  StackVec(const LinearContainer<Data>& con); // A stack obtained from a LinearContainer
+  StackVec(const LinearContainer<Data>& con); // A stack obtained from a LinearContainer DONE
 
   /* ************************************************************************ */
 
   // Copy constructor
-  StackVec(const StackVec&);
+  StackVec<Data>(const StackVec<Data>&); //DONE
 
   // Move constructor
-  StackVec(StackVec&&) noexcept;
+  StackVec(StackVec<Data>&&) noexcept; //DONE
 
   /* ************************************************************************ */
   // Destructor
@@ -53,15 +53,15 @@ public:
   /* ************************************************************************ */
 
   // Copy assignment
-  bool operator=(const StackVec&);
+  StackVec<Data>& operator=(const StackVec<Data>& newVec);
 
   // Move assignment
-  bool operator=(StackVec&&) noexcept;
+  StackVec<Data>& operator=(StackVec<Data>&& newVec) noexcept;
 
   /* ************************************************************************ */
   // Comparison operators
-  bool operator==(const StackVec&) const noexcept;
-  bool operator!=(const StackVec&) const noexcept;
+  bool operator==(const StackVec<Data>&) const noexcept;
+  bool operator!=(const StackVec<Data>&) const noexcept;
 
   /* ************************************************************************ */
 
@@ -80,7 +80,6 @@ public:
   // Specific member functions (inherited from Container)
 
   bool Empty() override; // Override Container member
-
   unsigned long Size() override; // Override Container member
   void Clear() override; // Override Container member
 

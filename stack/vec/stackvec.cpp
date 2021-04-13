@@ -1,5 +1,6 @@
 
-namespace lasd {
+namespace lasd
+{
 
 /* ************************************************************************** */
 
@@ -8,41 +9,47 @@ StackVec<Data>::StackVec() //costruttore senza parametri
 {
   Elements = new Data[1];
   size = 1;
-
 }
 
 template<typename Data>
 StackVec<Data>::StackVec(const LinearContainer<Data>& con)
 {
-  for(unsigned int i = 0; i < con.Size(); i++)
-    /*this.*/Push(con[i]);
+  for(unsigned int i = con.Size(); i > 0; i--)
+    /*this.*/Push(con[i - 1]);
   //return non serve perchè, stai riempiendo la classe dell'oggetto attuale istanziato.
+}
+
+//Copy assignment
+template <typename Data>
+StackVec<Data>& StackVec<Data>::operator=(const StackVec<Data>& newVec)
+{
+  Vector<Data>::operator=(newVec);
+  indice = newVec.indice;
+  sentinella = newVec.sentinella;
+  return *this;
+}
+//move assignment
+template <typename Data>
+StackVec<Data>& StackVec<Data>::operator=(StackVec<Data>&& newVec) noexcept
+{
+  Vector<Data>::operator=(std::move(newVec));
+  std::swap(indice, newVec.indice);
+  std::swap(sentinella, newVec.sentinella);
+  return *this;
 }
 
 //Copy constructor
 template<typename Data>
-StackVec<Data>::StackVec(const StackVec& newVec)
+StackVec<Data>::StackVec(const StackVec<Data>& newVec):Vector<Data>(newVec)
 {
-
-  StackVec<Data> tmp;
-  Data val;
-  if(newVec.size >= 1)
-  {
-    for(unsigned int i = 0; i < newVec.Size(); i++)
-      tmp.Push(newVec.TopNPop());
-    for(unsigned int i = 0; i < newVec.Size(); i++)
-    {
-      val = tmp.TopNPop();
-      /*this*/Push(val);
-      newVec.Push(val);
-    }
-    Resize(newVec.Size());
-  }
+  indice = newVec.indice;
+  sentinella = newVec.sentinella;
+  //la size la fa nel costruttore di vector<int> v;
 }
 
 //move constructor
 template <typename Data>
-StackVec<Data>::StackVec(StackVec&& vec) noexcept
+StackVec<Data>::StackVec(StackVec<Data>&& vec) noexcept
 {
     std::swap(Elements, vec.Elements);
     std::swap(indice, vec.indice);
@@ -70,11 +77,43 @@ void StackVec<Data>::Push(const Data& val)
     sentinella++;
   }
 }
+
 //move PUSH
 template <typename Data>
 void StackVec<Data>::Push(Data&& val) noexcept
 {
+  if(sentinella == size - 1)
+  {
+    Expand();
+  }
+  if(indice == 0 && sentinella == 0)
+  {
+    Elements[sentinella] = std::move(val);
+    sentinella++; // == 1
+    //index == 0;
+  }
+  else
+  {
+    Elements[sentinella] = std::move(val);
+    indice++;
+    sentinella++;
+  }
+}
 
+template <typename Data>
+void StackVec<Data>::Pop()
+{
+  if(sentinella == (size/2))
+    Reduce();
+  if(sentinella == 0 && indice == 0)
+  {
+    throw std::length_error("impossibile effettuare pop su stack vuoto!");
+  }
+  else
+  {
+    indice--;
+    sentinella--;
+  }
 }
 
 //TopNPop
@@ -100,7 +139,6 @@ void StackVec<Data>::Expand()
 {
     Resize(size * 2);
 }
-
 template <typename Data>
 void StackVec<Data>::Reduce()
 {
