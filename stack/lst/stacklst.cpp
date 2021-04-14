@@ -7,7 +7,7 @@ template <typename Data>
 StackLst<Data>::StackLst(const LinearContainer<Data>& con)
 {
   for(unsigned int i = 0; i < con.Size(); i++)
-    insertAtFront(con[i]);
+    Push(con[i]);
 }
 // Copy constructor
 template <typename Data>
@@ -39,29 +39,33 @@ StackLst<Data>& StackLst<Data>::operator=(StackLst&& newStack) noexcept
 template <typename Data>
 bool StackLst<Data>::operator==(const StackLst<Data>& newStack) const noexcept
 {
+  /*
   if(size == newStack.size)
     return (*this == newStack);
   else
+  */
     return false;
 }
 
 template <typename Data>
 bool StackLst<Data>::operator!=(const StackLst<Data>& newStack) const noexcept
 {
-  return !(*this == newStack);
+
+  //return !(*this == newStack);
+  return false;
 }
 
 //Copy PUSH
 template <typename Data>
 void StackLst<Data>::Push(const Data& val)
 {
-  insertAtFront(val);
+  List<Data>::InsertAtFront(val);
 }
 //Move PUSH
 template <typename Data>
 void StackLst<Data>::Push(Data&& val) noexcept
 {
-  insertAtFront(std::move(val));
+    List<Data>::InsertAtFront(std::move(val));
 }
 
 template <typename Data>

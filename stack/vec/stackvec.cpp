@@ -137,32 +137,37 @@ Data& StackVec<Data>::Top() const
 template <typename Data>
 void StackVec<Data>::Expand()
 {
-    Resize(size * 2);
+    Vector<Data>::Resize(size * 2);
 }
 template <typename Data>
 void StackVec<Data>::Reduce()
 {
-    Resize(size - (size / 4));
+    Vector<Data>::Resize(size - (size / 4));
 }
 //operator ==
 template <typename Data>
 bool StackVec<Data>::operator==(const StackVec<Data>& newVec) const noexcept
 {
+  /*
   if(sentinella < newVec.sentinella || sentinella > newVec.sentinella)
     return false;
   if(sentinella == newVec.sentinella)
   {
-    if(this.Elements == newVec.Elements)
+    if(this == newVec.Elements)
       return true;
     else
       return false;
   }
+  */
+  return false;
 }
 //operator !=
 template <typename Data>
 bool StackVec<Data>::operator!=(const StackVec<Data>& newVec) const noexcept
 {
-  return !(this == newVec);
+
+  //return !(this == newVec);
+  return false;
 }
 
 template <typename Data>
