@@ -2,15 +2,13 @@
 namespace lasd
 {
 
-/* ************************************************************************** */
-
+/* ***************************************************************************/
 template <typename Data>
 StackLst<Data>::StackLst(const LinearContainer<Data>& con)
 {
   for(unsigned int i = 0; i < con.Size(); i++)
     insertAtFront(con[i]);
 }
-
 // Copy constructor
 template <typename Data>
 StackLst<Data>::StackLst(const StackLst<Data>& newStack):List<Data>(newStack)
@@ -23,7 +21,6 @@ StackLst<Data>::StackLst(StackLst<Data>&& newStack) noexcept
 {
    std::swap(testa, newStack.testa);
 }
-
 // Copy assignment
 template <typename Data>
 StackLst<Data>& StackLst<Data>::operator=(const StackLst& newStack)
@@ -47,27 +44,28 @@ bool StackLst<Data>::operator==(const StackLst<Data>& newStack) const noexcept
   else
     return false;
 }
+
 template <typename Data>
 bool StackLst<Data>::operator!=(const StackLst<Data>& newStack) const noexcept
 {
   return !(*this == newStack);
 }
+
 //Copy PUSH
 template <typename Data>
 void StackLst<Data>::Push(const Data& val)
 {
   insertAtFront(val);
 }
-
 //Move PUSH
 template <typename Data>
-void StackLst<Data>::Push(Data&& val)
+void StackLst<Data>::Push(Data&& val) noexcept
 {
   insertAtFront(std::move(val));
 }
 
 template <typename Data>
-Data& StackLst<Data>::Top()
+Data& StackLst<Data>::Top() const
 {
   if(testa == nullptr)
     throw std::length_error("Stack vuoto");

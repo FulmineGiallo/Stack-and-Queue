@@ -128,7 +128,7 @@ Data StackVec<Data>::TopNPop()
 template <typename Data>
 Data& StackVec<Data>::Top() const
 {
-  if(size != 0)
+  if(sentinella != 0)
     return Elements[indice];
   else
     throw std::length_error("Impossibile accedere al primo elemento di uno stack vuoto!");
@@ -152,7 +152,7 @@ bool StackVec<Data>::operator==(const StackVec<Data>& newVec) const noexcept
     return false;
   if(sentinella == newVec.sentinella)
   {
-    if(this == newVec.Elements)
+    if(this.Elements == newVec.Elements)
       return true;
     else
       return false;
@@ -166,16 +166,16 @@ bool StackVec<Data>::operator!=(const StackVec<Data>& newVec) const noexcept
 }
 
 template <typename Data>
-bool StackVec<Data>::Empty()
+bool StackVec<Data>::Empty() const noexcept
 {
-  if(indice < 0)
+  if(sentinella == 0)
     return false;
   else
     return true;
 }
 
 template <typename Data>
-unsigned long StackVec<Data>::Size()
+unsigned long StackVec<Data>::Size() const noexcept
 {
   return sentinella;
 }
@@ -184,6 +184,8 @@ template <typename Data>
 void StackVec<Data>::Clear()
 {
   Vector<Data>::Clear();
+  sentinella = 0;
+  indice = 0;
 }
 /* ************************************************************************** */
 

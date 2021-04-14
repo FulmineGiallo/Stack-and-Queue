@@ -1,0 +1,420 @@
+In file included from zlasdtest/exercise2/../../stack/lst/stacklst.hpp:99,
+                 from zlasdtest/exercise2/simpletest.cpp:10:
+zlasdtest/exercise2/../../stack/lst/stacklst.cpp: In instantiation of 'lasd::StackLst<Data>::StackLst(const lasd::LinearContainer<Data>&) [with Data = std::__cxx11::basic_string<char>]':
+zlasdtest/exercise2/simpletest.cpp:166:41:   required from here
+zlasdtest/exercise2/../../stack/lst/stacklst.cpp:10:18: error: 'insertAtFront' was not declared in this scope
+     insertAtFront(con[i]);
+     ~~~~~~~~~~~~~^~~~~~~~
+zlasdtest/exercise2/../../stack/lst/stacklst.cpp:10:18: note: suggested alternative: 'InsertAtFront'
+     insertAtFront(con[i]);
+     ~~~~~~~~~~~~~^~~~~~~~
+     InsertAtFront
+In file included from zlasdtest/exercise2/../../stack/vec/stackvec.hpp:96,
+                 from zlasdtest/exercise2/simpletest.cpp:9:
+zlasdtest/exercise2/../../stack/vec/stackvec.cpp: In instantiation of 'bool lasd::StackVec<Data>::operator==(const lasd::StackVec<Data>&) const [with Data = std::__cxx11::basic_string<char>]':
+zlasdtest/exercise2/../stack/stack.hpp:93:76:   required from 'void EqualStack(unsigned int&, unsigned int&, const Stk&, const Stk&, bool) [with Stk = lasd::StackVec<std::__cxx11::basic_string<char> >]'
+zlasdtest/exercise2/simpletest.cpp:162:63:   required from here
+zlasdtest/exercise2/../../stack/vec/stackvec.cpp:155:13: error: request for member 'Elements' in '(const lasd::StackVec<std::__cxx11::basic_string<char> >*)this', which is of pointer type 'const lasd::StackVec<std::__cxx11::basic_string<char> >*' (maybe you meant to use '->' ?)
+     if(this.Elements == newVec.Elements)
+        ~~~~~^~~~~~~~
+zlasdtest/exercise2/../../stack/vec/stackvec.cpp: In instantiation of 'bool lasd::StackVec<Data>::operator==(const lasd::StackVec<Data>&) const [with Data = int]':
+zlasdtest/exercise2/../stack/stack.hpp:93:76:   required from 'void EqualStack(unsigned int&, unsigned int&, const Stk&, const Stk&, bool) [with Stk = lasd::StackVec<int>]'
+zlasdtest/exercise2/simpletest.cpp:45:15:   required from 'void stestStackInt(Stk&, unsigned int&, unsigned int&) [with Stk = lasd::StackVec<int>]'
+zlasdtest/exercise2/simpletest.cpp:79:47:   required from here
+zlasdtest/exercise2/../../stack/vec/stackvec.cpp:155:13: error: request for member 'Elements' in '(const lasd::StackVec<int>*)this', which is of pointer type 'const lasd::StackVec<int>*' (maybe you meant to use '->' ?)
+zlasdtest/exercise2/../../stack/vec/stackvec.cpp: In instantiation of 'bool lasd::StackVec<Data>::operator!=(const lasd::StackVec<Data>&) const [with Data = int]':
+zlasdtest/exercise2/../stack/stack.hpp:106:76:   required from 'void NonEqualStack(unsigned int&, unsigned int&, const Stk&, const Stk&, bool) [with Stk = lasd::StackVec<int>]'
+zlasdtest/exercise2/simpletest.cpp:47:18:   required from 'void stestStackInt(Stk&, unsigned int&, unsigned int&) [with Stk = lasd::StackVec<int>]'
+zlasdtest/exercise2/simpletest.cpp:79:47:   required from here
+zlasdtest/exercise2/../../stack/vec/stackvec.cpp:165:17: error: no match for 'operator==' (operand types are 'const lasd::StackVec<int>*' and 'const lasd::StackVec<int>')
+   return !(this == newVec);
+           ~~~~~~^~~~~~~~~~
+In file included from C:/Program Files (x86)/mingw-w64/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/lib/gcc/i686-w64-mingw32/8.1.0/include/c++/iosfwd:40,
+                 from C:/Program Files (x86)/mingw-w64/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/lib/gcc/i686-w64-mingw32/8.1.0/include/c++/ios:38,
+                 from C:/Program Files (x86)/mingw-w64/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/lib/gcc/i686-w64-mingw32/8.1.0/include/c++/ostream:38,
+                 from C:/Program Files (x86)/mingw-w64/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/lib/gcc/i686-w64-mingw32/8.1.0/include/c++/iostream:39,
+                 from zlasdtest/exercise2/simpletest.cpp:2:
+C:/Program Files (x86)/mingw-w64/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/lib/gcc/i686-w64-mingw32/8.1.0/include/c++/bits/postypes.h:216:5: note: candidate: 'template<class _StateT> bool std::operator==(const std::fpos<_StateT>&, const std::fpos<_StateT>&)'
+     operator==(const fpos<_StateT>& __lhs, const fpos<_StateT>& __rhs)
+     ^~~~~~~~
+C:/Program Files (x86)/mingw-w64/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/lib/gcc/i686-w64-mingw32/8.1.0/include/c++/bits/postypes.h:216:5: note:   template argument deduction/substitution failed:
+In file included from zlasdtest/exercise2/../../stack/vec/stackvec.hpp:96,
+                 from zlasdtest/exercise2/simpletest.cpp:9:
+zlasdtest/exercise2/../../stack/vec/stackvec.cpp:165:17: note:   mismatched types 'const std::fpos<_StateT>' and 'const lasd::StackVec<int>*'
+   return !(this == newVec);
+           ~~~~~~^~~~~~~~~~
+In file included from C:/Program Files (x86)/mingw-w64/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/lib/gcc/i686-w64-mingw32/8.1.0/include/c++/bits/stl_algobase.h:64,
+                 from C:/Program Files (x86)/mingw-w64/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/lib/gcc/i686-w64-mingw32/8.1.0/include/c++/bits/char_traits.h:39,
+                 from C:/Program Files (x86)/mingw-w64/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/lib/gcc/i686-w64-mingw32/8.1.0/include/c++/ios:40,
+                 from C:/Program Files (x86)/mingw-w64/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/lib/gcc/i686-w64-mingw32/8.1.0/include/c++/ostream:38,
+                 from C:/Program Files (x86)/mingw-w64/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/lib/gcc/i686-w64-mingw32/8.1.0/include/c++/iostream:39,
+                 from zlasdtest/exercise2/simpletest.cpp:2:
+C:/Program Files (x86)/mingw-w64/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/lib/gcc/i686-w64-mingw32/8.1.0/include/c++/bits/stl_pair.h:443:5: note: candidate: 'template<class _T1, class _T2> constexpr bool std::operator==(const std::pair<_T1, _T2>&, const std::pair<_T1, _T2>&)'
+     operator==(const pair<_T1, _T2>& __x, const pair<_T1, _T2>& __y)
+     ^~~~~~~~
+C:/Program Files (x86)/mingw-w64/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/lib/gcc/i686-w64-mingw32/8.1.0/include/c++/bits/stl_pair.h:443:5: note:   template argument deduction/substitution failed:
+In file included from zlasdtest/exercise2/../../stack/vec/stackvec.hpp:96,
+                 from zlasdtest/exercise2/simpletest.cpp:9:
+zlasdtest/exercise2/../../stack/vec/stackvec.cpp:165:17: note:   mismatched types 'const std::pair<_T1, _T2>' and 'const lasd::StackVec<int>*'
+   return !(this == newVec);
+           ~~~~~~^~~~~~~~~~
+In file included from C:/Program Files (x86)/mingw-w64/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/lib/gcc/i686-w64-mingw32/8.1.0/include/c++/bits/stl_algobase.h:67,
+                 from C:/Program Files (x86)/mingw-w64/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/lib/gcc/i686-w64-mingw32/8.1.0/include/c++/bits/char_traits.h:39,
+                 from C:/Program Files (x86)/mingw-w64/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/lib/gcc/i686-w64-mingw32/8.1.0/include/c++/ios:40,
+                 from C:/Program Files (x86)/mingw-w64/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/lib/gcc/i686-w64-mingw32/8.1.0/include/c++/ostream:38,
+                 from C:/Program Files (x86)/mingw-w64/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/lib/gcc/i686-w64-mingw32/8.1.0/include/c++/iostream:39,
+                 from zlasdtest/exercise2/simpletest.cpp:2:
+C:/Program Files (x86)/mingw-w64/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/lib/gcc/i686-w64-mingw32/8.1.0/include/c++/bits/stl_iterator.h:299:5: note: candidate: 'template<class _Iterator> bool std::operator==(const std::reverse_iterator<_Iterator>&, const std::reverse_iterator<_Iterator>&)'
+     operator==(const reverse_iterator<_Iterator>& __x,
+     ^~~~~~~~
+C:/Program Files (x86)/mingw-w64/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/lib/gcc/i686-w64-mingw32/8.1.0/include/c++/bits/stl_iterator.h:299:5: note:   template argument deduction/substitution failed:
+In file included from zlasdtest/exercise2/../../stack/vec/stackvec.hpp:96,
+                 from zlasdtest/exercise2/simpletest.cpp:9:
+zlasdtest/exercise2/../../stack/vec/stackvec.cpp:165:17: note:   mismatched types 'const std::reverse_iterator<_Iterator>' and 'const lasd::StackVec<int>*'
+   return !(this == newVec);
+           ~~~~~~^~~~~~~~~~
+In file included from C:/Program Files (x86)/mingw-w64/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/lib/gcc/i686-w64-mingw32/8.1.0/include/c++/bits/stl_algobase.h:67,
+                 from C:/Program Files (x86)/mingw-w64/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/lib/gcc/i686-w64-mingw32/8.1.0/include/c++/bits/char_traits.h:39,
+                 from C:/Program Files (x86)/mingw-w64/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/lib/gcc/i686-w64-mingw32/8.1.0/include/c++/ios:40,
+                 from C:/Program Files (x86)/mingw-w64/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/lib/gcc/i686-w64-mingw32/8.1.0/include/c++/ostream:38,
+                 from C:/Program Files (x86)/mingw-w64/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/lib/gcc/i686-w64-mingw32/8.1.0/include/c++/iostream:39,
+                 from zlasdtest/exercise2/simpletest.cpp:2:
+C:/Program Files (x86)/mingw-w64/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/lib/gcc/i686-w64-mingw32/8.1.0/include/c++/bits/stl_iterator.h:337:5: note: candidate: 'template<class _IteratorL, class _IteratorR> bool std::operator==(const std::reverse_iterator<_Iterator>&, const std::reverse_iterator<_IteratorR>&)'
+     operator==(const reverse_iterator<_IteratorL>& __x,
+     ^~~~~~~~
+C:/Program Files (x86)/mingw-w64/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/lib/gcc/i686-w64-mingw32/8.1.0/include/c++/bits/stl_iterator.h:337:5: note:   template argument deduction/substitution failed:
+In file included from zlasdtest/exercise2/../../stack/vec/stackvec.hpp:96,
+                 from zlasdtest/exercise2/simpletest.cpp:9:
+zlasdtest/exercise2/../../stack/vec/stackvec.cpp:165:17: note:   mismatched types 'const std::reverse_iterator<_Iterator>' and 'const lasd::StackVec<int>*'
+   return !(this == newVec);
+           ~~~~~~^~~~~~~~~~
+In file included from C:/Program Files (x86)/mingw-w64/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/lib/gcc/i686-w64-mingw32/8.1.0/include/c++/bits/stl_algobase.h:67,
+                 from C:/Program Files (x86)/mingw-w64/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/lib/gcc/i686-w64-mingw32/8.1.0/include/c++/bits/char_traits.h:39,
+                 from C:/Program Files (x86)/mingw-w64/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/lib/gcc/i686-w64-mingw32/8.1.0/include/c++/ios:40,
+                 from C:/Program Files (x86)/mingw-w64/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/lib/gcc/i686-w64-mingw32/8.1.0/include/c++/ostream:38,
+                 from C:/Program Files (x86)/mingw-w64/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/lib/gcc/i686-w64-mingw32/8.1.0/include/c++/iostream:39,
+                 from zlasdtest/exercise2/simpletest.cpp:2:
+C:/Program Files (x86)/mingw-w64/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/lib/gcc/i686-w64-mingw32/8.1.0/include/c++/bits/stl_iterator.h:1112:5: note: candidate: 'template<class _IteratorL, class _IteratorR> bool std::operator==(const std::move_iterator<_IteratorL>&, const std::move_iterator<_IteratorR>&)'
+     operator==(const move_iterator<_IteratorL>& __x,
+     ^~~~~~~~
+C:/Program Files (x86)/mingw-w64/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/lib/gcc/i686-w64-mingw32/8.1.0/include/c++/bits/stl_iterator.h:1112:5: note:   template argument deduction/substitution failed:
+In file included from zlasdtest/exercise2/../../stack/vec/stackvec.hpp:96,
+                 from zlasdtest/exercise2/simpletest.cpp:9:
+zlasdtest/exercise2/../../stack/vec/stackvec.cpp:165:17: note:   mismatched types 'const std::move_iterator<_IteratorL>' and 'const lasd::StackVec<int>*'
+   return !(this == newVec);
+           ~~~~~~^~~~~~~~~~
+In file included from C:/Program Files (x86)/mingw-w64/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/lib/gcc/i686-w64-mingw32/8.1.0/include/c++/bits/stl_algobase.h:67,
+                 from C:/Program Files (x86)/mingw-w64/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/lib/gcc/i686-w64-mingw32/8.1.0/include/c++/bits/char_traits.h:39,
+                 from C:/Program Files (x86)/mingw-w64/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/lib/gcc/i686-w64-mingw32/8.1.0/include/c++/ios:40,
+                 from C:/Program Files (x86)/mingw-w64/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/lib/gcc/i686-w64-mingw32/8.1.0/include/c++/ostream:38,
+                 from C:/Program Files (x86)/mingw-w64/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/lib/gcc/i686-w64-mingw32/8.1.0/include/c++/iostream:39,
+                 from zlasdtest/exercise2/simpletest.cpp:2:
+C:/Program Files (x86)/mingw-w64/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/lib/gcc/i686-w64-mingw32/8.1.0/include/c++/bits/stl_iterator.h:1118:5: note: candidate: 'template<class _Iterator> bool std::operator==(const std::move_iterator<_IteratorL>&, const std::move_iterator<_IteratorL>&)'
+     operator==(const move_iterator<_Iterator>& __x,
+     ^~~~~~~~
+C:/Program Files (x86)/mingw-w64/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/lib/gcc/i686-w64-mingw32/8.1.0/include/c++/bits/stl_iterator.h:1118:5: note:   template argument deduction/substitution failed:
+In file included from zlasdtest/exercise2/../../stack/vec/stackvec.hpp:96,
+                 from zlasdtest/exercise2/simpletest.cpp:9:
+zlasdtest/exercise2/../../stack/vec/stackvec.cpp:165:17: note:   mismatched types 'const std::move_iterator<_IteratorL>' and 'const lasd::StackVec<int>*'
+   return !(this == newVec);
+           ~~~~~~^~~~~~~~~~
+In file included from C:/Program Files (x86)/mingw-w64/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/lib/gcc/i686-w64-mingw32/8.1.0/include/c++/string:41,
+                 from C:/Program Files (x86)/mingw-w64/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/lib/gcc/i686-w64-mingw32/8.1.0/include/c++/bits/locale_classes.h:40,
+                 from C:/Program Files (x86)/mingw-w64/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/lib/gcc/i686-w64-mingw32/8.1.0/include/c++/bits/ios_base.h:41,
+                 from C:/Program Files (x86)/mingw-w64/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/lib/gcc/i686-w64-mingw32/8.1.0/include/c++/ios:42,
+                 from C:/Program Files (x86)/mingw-w64/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/lib/gcc/i686-w64-mingw32/8.1.0/include/c++/ostream:38,
+                 from C:/Program Files (x86)/mingw-w64/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/lib/gcc/i686-w64-mingw32/8.1.0/include/c++/iostream:39,
+                 from zlasdtest/exercise2/simpletest.cpp:2:
+C:/Program Files (x86)/mingw-w64/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/lib/gcc/i686-w64-mingw32/8.1.0/include/c++/bits/allocator.h:146:5: note: candidate: 'template<class _T1, class _T2> bool std::operator==(const std::allocator<_CharT>&, const std::allocator<_T2>&)'
+     operator==(const allocator<_T1>&, const allocator<_T2>&)
+     ^~~~~~~~
+C:/Program Files (x86)/mingw-w64/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/lib/gcc/i686-w64-mingw32/8.1.0/include/c++/bits/allocator.h:146:5: note:   template argument deduction/substitution failed:
+In file included from zlasdtest/exercise2/../../stack/vec/stackvec.hpp:96,
+                 from zlasdtest/exercise2/simpletest.cpp:9:
+zlasdtest/exercise2/../../stack/vec/stackvec.cpp:165:17: note:   mismatched types 'const std::allocator<_CharT>' and 'const lasd::StackVec<int>*'
+   return !(this == newVec);
+           ~~~~~~^~~~~~~~~~
+In file included from C:/Program Files (x86)/mingw-w64/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/lib/gcc/i686-w64-mingw32/8.1.0/include/c++/string:41,
+                 from C:/Program Files (x86)/mingw-w64/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/lib/gcc/i686-w64-mingw32/8.1.0/include/c++/bits/locale_classes.h:40,
+                 from C:/Program Files (x86)/mingw-w64/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/lib/gcc/i686-w64-mingw32/8.1.0/include/c++/bits/ios_base.h:41,
+                 from C:/Program Files (x86)/mingw-w64/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/lib/gcc/i686-w64-mingw32/8.1.0/include/c++/ios:42,
+                 from C:/Program Files (x86)/mingw-w64/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/lib/gcc/i686-w64-mingw32/8.1.0/include/c++/ostream:38,
+                 from C:/Program Files (x86)/mingw-w64/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/lib/gcc/i686-w64-mingw32/8.1.0/include/c++/iostream:39,
+                 from zlasdtest/exercise2/simpletest.cpp:2:
+C:/Program Files (x86)/mingw-w64/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/lib/gcc/i686-w64-mingw32/8.1.0/include/c++/bits/allocator.h:152:5: note: candidate: 'template<class _Tp> bool std::operator==(const std::allocator<_CharT>&, const std::allocator<_CharT>&)'
+     operator==(const allocator<_Tp>&, const allocator<_Tp>&)
+     ^~~~~~~~
+C:/Program Files (x86)/mingw-w64/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/lib/gcc/i686-w64-mingw32/8.1.0/include/c++/bits/allocator.h:152:5: note:   template argument deduction/substitution failed:
+In file included from zlasdtest/exercise2/../../stack/vec/stackvec.hpp:96,
+                 from zlasdtest/exercise2/simpletest.cpp:9:
+zlasdtest/exercise2/../../stack/vec/stackvec.cpp:165:17: note:   mismatched types 'const std::allocator<_CharT>' and 'const lasd::StackVec<int>*'
+   return !(this == newVec);
+           ~~~~~~^~~~~~~~~~
+In file included from C:/Program Files (x86)/mingw-w64/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/lib/gcc/i686-w64-mingw32/8.1.0/include/c++/string:52,
+                 from C:/Program Files (x86)/mingw-w64/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/lib/gcc/i686-w64-mingw32/8.1.0/include/c++/bits/locale_classes.h:40,
+                 from C:/Program Files (x86)/mingw-w64/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/lib/gcc/i686-w64-mingw32/8.1.0/include/c++/bits/ios_base.h:41,
+                 from C:/Program Files (x86)/mingw-w64/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/lib/gcc/i686-w64-mingw32/8.1.0/include/c++/ios:42,
+                 from C:/Program Files (x86)/mingw-w64/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/lib/gcc/i686-w64-mingw32/8.1.0/include/c++/ostream:38,
+                 from C:/Program Files (x86)/mingw-w64/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/lib/gcc/i686-w64-mingw32/8.1.0/include/c++/iostream:39,
+                 from zlasdtest/exercise2/simpletest.cpp:2:
+C:/Program Files (x86)/mingw-w64/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/lib/gcc/i686-w64-mingw32/8.1.0/include/c++/bits/basic_string.h:6009:5: note: candidate: 'template<class _CharT, class _Traits, class _Alloc> bool std::operator==(const std::__cxx11::basic_string<_CharT, _Traits, _Alloc>&, const std::__cxx11::basic_string<_CharT, _Traits, _Alloc>&)'
+     operator==(const basic_string<_CharT, _Traits, _Alloc>& __lhs,
+     ^~~~~~~~
+C:/Program Files (x86)/mingw-w64/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/lib/gcc/i686-w64-mingw32/8.1.0/include/c++/bits/basic_string.h:6009:5: note:   template argument deduction/substitution failed:
+In file included from zlasdtest/exercise2/../../stack/vec/stackvec.hpp:96,
+                 from zlasdtest/exercise2/simpletest.cpp:9:
+zlasdtest/exercise2/../../stack/vec/stackvec.cpp:165:17: note:   mismatched types 'const std::__cxx11::basic_string<_CharT, _Traits, _Alloc>' and 'const lasd::StackVec<int>*'
+   return !(this == newVec);
+           ~~~~~~^~~~~~~~~~
+In file included from C:/Program Files (x86)/mingw-w64/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/lib/gcc/i686-w64-mingw32/8.1.0/include/c++/string:52,
+                 from C:/Program Files (x86)/mingw-w64/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/lib/gcc/i686-w64-mingw32/8.1.0/include/c++/bits/locale_classes.h:40,
+                 from C:/Program Files (x86)/mingw-w64/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/lib/gcc/i686-w64-mingw32/8.1.0/include/c++/bits/ios_base.h:41,
+                 from C:/Program Files (x86)/mingw-w64/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/lib/gcc/i686-w64-mingw32/8.1.0/include/c++/ios:42,
+                 from C:/Program Files (x86)/mingw-w64/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/lib/gcc/i686-w64-mingw32/8.1.0/include/c++/ostream:38,
+                 from C:/Program Files (x86)/mingw-w64/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/lib/gcc/i686-w64-mingw32/8.1.0/include/c++/iostream:39,
+                 from zlasdtest/exercise2/simpletest.cpp:2:
+C:/Program Files (x86)/mingw-w64/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/lib/gcc/i686-w64-mingw32/8.1.0/include/c++/bits/basic_string.h:6017:5: note: candidate: 'template<class _CharT> typename __gnu_cxx::__enable_if<std::__is_char<_Tp>::__value, bool>::__type std::operator==(const std::__cxx11::basic_string<_CharT>&, const std::__cxx11::basic_string<_CharT>&)'
+     operator==(const basic_string<_CharT>& __lhs,
+     ^~~~~~~~
+C:/Program Files (x86)/mingw-w64/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/lib/gcc/i686-w64-mingw32/8.1.0/include/c++/bits/basic_string.h:6017:5: note:   template argument deduction/substitution failed:
+In file included from zlasdtest/exercise2/../../stack/vec/stackvec.hpp:96,
+                 from zlasdtest/exercise2/simpletest.cpp:9:
+zlasdtest/exercise2/../../stack/vec/stackvec.cpp:165:17: note:   mismatched types 'const std::__cxx11::basic_string<_CharT>' and 'const lasd::StackVec<int>*'
+   return !(this == newVec);
+           ~~~~~~^~~~~~~~~~
+In file included from C:/Program Files (x86)/mingw-w64/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/lib/gcc/i686-w64-mingw32/8.1.0/include/c++/string:52,
+                 from C:/Program Files (x86)/mingw-w64/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/lib/gcc/i686-w64-mingw32/8.1.0/include/c++/bits/locale_classes.h:40,
+                 from C:/Program Files (x86)/mingw-w64/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/lib/gcc/i686-w64-mingw32/8.1.0/include/c++/bits/ios_base.h:41,
+                 from C:/Program Files (x86)/mingw-w64/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/lib/gcc/i686-w64-mingw32/8.1.0/include/c++/ios:42,
+                 from C:/Program Files (x86)/mingw-w64/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/lib/gcc/i686-w64-mingw32/8.1.0/include/c++/ostream:38,
+                 from C:/Program Files (x86)/mingw-w64/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/lib/gcc/i686-w64-mingw32/8.1.0/include/c++/iostream:39,
+                 from zlasdtest/exercise2/simpletest.cpp:2:
+C:/Program Files (x86)/mingw-w64/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/lib/gcc/i686-w64-mingw32/8.1.0/include/c++/bits/basic_string.h:6031:5: note: candidate: 'template<class _CharT, class _Traits, class _Alloc> bool std::operator==(const _CharT*, const std::__cxx11::basic_string<_CharT, _Traits, _Alloc>&)'
+     operator==(const _CharT* __lhs,
+     ^~~~~~~~
+C:/Program Files (x86)/mingw-w64/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/lib/gcc/i686-w64-mingw32/8.1.0/include/c++/bits/basic_string.h:6031:5: note:   template argument deduction/substitution failed:
+In file included from zlasdtest/exercise2/../../stack/vec/stackvec.hpp:96,
+                 from zlasdtest/exercise2/simpletest.cpp:9:
+zlasdtest/exercise2/../../stack/vec/stackvec.cpp:165:17: note:   'const lasd::StackVec<int>' is not derived from 'const std::__cxx11::basic_string<_CharT, _Traits, _Alloc>'
+   return !(this == newVec);
+           ~~~~~~^~~~~~~~~~
+In file included from C:/Program Files (x86)/mingw-w64/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/lib/gcc/i686-w64-mingw32/8.1.0/include/c++/string:52,
+                 from C:/Program Files (x86)/mingw-w64/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/lib/gcc/i686-w64-mingw32/8.1.0/include/c++/bits/locale_classes.h:40,
+                 from C:/Program Files (x86)/mingw-w64/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/lib/gcc/i686-w64-mingw32/8.1.0/include/c++/bits/ios_base.h:41,
+                 from C:/Program Files (x86)/mingw-w64/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/lib/gcc/i686-w64-mingw32/8.1.0/include/c++/ios:42,
+                 from C:/Program Files (x86)/mingw-w64/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/lib/gcc/i686-w64-mingw32/8.1.0/include/c++/ostream:38,
+                 from C:/Program Files (x86)/mingw-w64/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/lib/gcc/i686-w64-mingw32/8.1.0/include/c++/iostream:39,
+                 from zlasdtest/exercise2/simpletest.cpp:2:
+C:/Program Files (x86)/mingw-w64/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/lib/gcc/i686-w64-mingw32/8.1.0/include/c++/bits/basic_string.h:6043:5: note: candidate: 'template<class _CharT, class _Traits, class _Alloc> bool std::operator==(const std::__cxx11::basic_string<_CharT, _Traits, _Alloc>&, const _CharT*)'
+     operator==(const basic_string<_CharT, _Traits, _Alloc>& __lhs,
+     ^~~~~~~~
+C:/Program Files (x86)/mingw-w64/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/lib/gcc/i686-w64-mingw32/8.1.0/include/c++/bits/basic_string.h:6043:5: note:   template argument deduction/substitution failed:
+In file included from zlasdtest/exercise2/../../stack/vec/stackvec.hpp:96,
+                 from zlasdtest/exercise2/simpletest.cpp:9:
+zlasdtest/exercise2/../../stack/vec/stackvec.cpp:165:17: note:   mismatched types 'const std::__cxx11::basic_string<_CharT, _Traits, _Alloc>' and 'const lasd::StackVec<int>*'
+   return !(this == newVec);
+           ~~~~~~^~~~~~~~~~
+In file included from C:/Program Files (x86)/mingw-w64/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/lib/gcc/i686-w64-mingw32/8.1.0/include/c++/bits/ios_base.h:46,
+                 from C:/Program Files (x86)/mingw-w64/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/lib/gcc/i686-w64-mingw32/8.1.0/include/c++/ios:42,
+                 from C:/Program Files (x86)/mingw-w64/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/lib/gcc/i686-w64-mingw32/8.1.0/include/c++/ostream:38,
+                 from C:/Program Files (x86)/mingw-w64/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/lib/gcc/i686-w64-mingw32/8.1.0/include/c++/iostream:39,
+                 from zlasdtest/exercise2/simpletest.cpp:2:
+C:/Program Files (x86)/mingw-w64/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/lib/gcc/i686-w64-mingw32/8.1.0/include/c++/system_error:292:3: note: candidate: 'bool std::operator==(const std::error_code&, const std::error_code&)'
+   operator==(const error_code& __lhs, const error_code& __rhs) noexcept
+   ^~~~~~~~
+C:/Program Files (x86)/mingw-w64/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/lib/gcc/i686-w64-mingw32/8.1.0/include/c++/system_error:292:3: note:   no known conversion for argument 1 from 'const lasd::StackVec<int>*' to 'const std::error_code&'
+C:/Program Files (x86)/mingw-w64/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/lib/gcc/i686-w64-mingw32/8.1.0/include/c++/system_error:297:3: note: candidate: 'bool std::operator==(const std::error_code&, const std::error_condition&)'
+   operator==(const error_code& __lhs, const error_condition& __rhs) noexcept
+   ^~~~~~~~
+C:/Program Files (x86)/mingw-w64/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/lib/gcc/i686-w64-mingw32/8.1.0/include/c++/system_error:297:3: note:   no known conversion for argument 1 from 'const lasd::StackVec<int>*' to 'const std::error_code&'
+C:/Program Files (x86)/mingw-w64/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/lib/gcc/i686-w64-mingw32/8.1.0/include/c++/system_error:304:3: note: candidate: 'bool std::operator==(const std::error_condition&, const std::error_code&)'
+   operator==(const error_condition& __lhs, const error_code& __rhs) noexcept
+   ^~~~~~~~
+C:/Program Files (x86)/mingw-w64/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/lib/gcc/i686-w64-mingw32/8.1.0/include/c++/system_error:304:3: note:   no known conversion for argument 1 from 'const lasd::StackVec<int>*' to 'const std::error_condition&'
+C:/Program Files (x86)/mingw-w64/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/lib/gcc/i686-w64-mingw32/8.1.0/include/c++/system_error:311:3: note: candidate: 'bool std::operator==(const std::error_condition&, const std::error_condition&)'
+   operator==(const error_condition& __lhs,
+   ^~~~~~~~
+C:/Program Files (x86)/mingw-w64/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/lib/gcc/i686-w64-mingw32/8.1.0/include/c++/system_error:311:3: note:   no known conversion for argument 1 from 'const lasd::StackVec<int>*' to 'const std::error_condition&'
+In file included from C:/Program Files (x86)/mingw-w64/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/lib/gcc/i686-w64-mingw32/8.1.0/include/c++/bits/locale_facets.h:48,
+                 from C:/Program Files (x86)/mingw-w64/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/lib/gcc/i686-w64-mingw32/8.1.0/include/c++/bits/basic_ios.h:37,
+                 from C:/Program Files (x86)/mingw-w64/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/lib/gcc/i686-w64-mingw32/8.1.0/include/c++/ios:44,
+                 from C:/Program Files (x86)/mingw-w64/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/lib/gcc/i686-w64-mingw32/8.1.0/include/c++/ostream:38,
+                 from C:/Program Files (x86)/mingw-w64/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/lib/gcc/i686-w64-mingw32/8.1.0/include/c++/iostream:39,
+                 from zlasdtest/exercise2/simpletest.cpp:2:
+C:/Program Files (x86)/mingw-w64/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/lib/gcc/i686-w64-mingw32/8.1.0/include/c++/bits/streambuf_iterator.h:203:5: note: candidate: 'template<class _CharT, class _Traits> bool std::operator==(const std::istreambuf_iterator<_CharT, _Traits>&, const std::istreambuf_iterator<_CharT, _Traits>&)'
+     operator==(const istreambuf_iterator<_CharT, _Traits>& __a,
+     ^~~~~~~~
+C:/Program Files (x86)/mingw-w64/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/lib/gcc/i686-w64-mingw32/8.1.0/include/c++/bits/streambuf_iterator.h:203:5: note:   template argument deduction/substitution failed:
+In file included from zlasdtest/exercise2/../../stack/vec/stackvec.hpp:96,
+                 from zlasdtest/exercise2/simpletest.cpp:9:
+zlasdtest/exercise2/../../stack/vec/stackvec.cpp:165:17: note:   mismatched types 'const std::istreambuf_iterator<_CharT, _Traits>' and 'const lasd::StackVec<int>*'
+   return !(this == newVec);
+           ~~~~~~^~~~~~~~~~
+In file included from C:/Program Files (x86)/mingw-w64/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/lib/gcc/i686-w64-mingw32/8.1.0/include/c++/tuple:39,
+                 from C:/Program Files (x86)/mingw-w64/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/lib/gcc/i686-w64-mingw32/8.1.0/include/c++/functional:54,
+                 from zlasdtest/exercise2/../container/../../container/container.hpp:8,
+                 from zlasdtest/exercise2/../container/container.hpp:5,
+                 from zlasdtest/exercise2/simpletest.cpp:6:
+C:/Program Files (x86)/mingw-w64/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/lib/gcc/i686-w64-mingw32/8.1.0/include/c++/array:252:5: note: candidate: 'template<class _Tp, unsigned int _Nm> bool std::operator==(const std::array<_Tp, _Nm>&, const std::array<_Tp, _Nm>&)'
+     operator==(const array<_Tp, _Nm>& __one, const array<_Tp, _Nm>& __two)
+     ^~~~~~~~
+C:/Program Files (x86)/mingw-w64/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/lib/gcc/i686-w64-mingw32/8.1.0/include/c++/array:252:5: note:   template argument deduction/substitution failed:
+In file included from zlasdtest/exercise2/../../stack/vec/stackvec.hpp:96,
+                 from zlasdtest/exercise2/simpletest.cpp:9:
+zlasdtest/exercise2/../../stack/vec/stackvec.cpp:165:17: note:   mismatched types 'const std::array<_Tp, _Nm>' and 'const lasd::StackVec<int>*'
+   return !(this == newVec);
+           ~~~~~~^~~~~~~~~~
+In file included from C:/Program Files (x86)/mingw-w64/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/lib/gcc/i686-w64-mingw32/8.1.0/include/c++/functional:54,
+                 from zlasdtest/exercise2/../container/../../container/container.hpp:8,
+                 from zlasdtest/exercise2/../container/container.hpp:5,
+                 from zlasdtest/exercise2/simpletest.cpp:6:
+C:/Program Files (x86)/mingw-w64/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/lib/gcc/i686-w64-mingw32/8.1.0/include/c++/tuple:1413:5: note: candidate: 'template<class ... _TElements, class ... _UElements> constexpr bool std::operator==(const std::tuple<_Tps ...>&, const std::tuple<_Elements ...>&)'
+     operator==(const tuple<_TElements...>& __t,
+     ^~~~~~~~
+C:/Program Files (x86)/mingw-w64/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/lib/gcc/i686-w64-mingw32/8.1.0/include/c++/tuple:1413:5: note:   template argument deduction/substitution failed:
+In file included from zlasdtest/exercise2/../../stack/vec/stackvec.hpp:96,
+                 from zlasdtest/exercise2/simpletest.cpp:9:
+zlasdtest/exercise2/../../stack/vec/stackvec.cpp:165:17: note:   mismatched types 'const std::tuple<_Tps ...>' and 'const lasd::StackVec<int>*'
+   return !(this == newVec);
+           ~~~~~~^~~~~~~~~~
+In file included from C:/Program Files (x86)/mingw-w64/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/lib/gcc/i686-w64-mingw32/8.1.0/include/c++/functional:59,
+                 from zlasdtest/exercise2/../container/../../container/container.hpp:8,
+                 from zlasdtest/exercise2/../container/container.hpp:5,
+                 from zlasdtest/exercise2/simpletest.cpp:6:
+C:/Program Files (x86)/mingw-w64/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/lib/gcc/i686-w64-mingw32/8.1.0/include/c++/bits/std_function.h:745:5: note: candidate: 'template<class _Res, class ... _Args> bool std::operator==(const std::function<_Res(_ArgTypes ...)>&, std::nullptr_t)'
+     operator==(const function<_Res(_Args...)>& __f, nullptr_t) noexcept
+     ^~~~~~~~
+C:/Program Files (x86)/mingw-w64/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/lib/gcc/i686-w64-mingw32/8.1.0/include/c++/bits/std_function.h:745:5: note:   template argument deduction/substitution failed:
+In file included from zlasdtest/exercise2/../../stack/vec/stackvec.hpp:96,
+                 from zlasdtest/exercise2/simpletest.cpp:9:
+zlasdtest/exercise2/../../stack/vec/stackvec.cpp:165:17: note:   mismatched types 'const std::function<_Res(_ArgTypes ...)>' and 'const lasd::StackVec<int>*'
+   return !(this == newVec);
+           ~~~~~~^~~~~~~~~~
+In file included from C:/Program Files (x86)/mingw-w64/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/lib/gcc/i686-w64-mingw32/8.1.0/include/c++/functional:59,
+                 from zlasdtest/exercise2/../container/../../container/container.hpp:8,
+                 from zlasdtest/exercise2/../container/container.hpp:5,
+                 from zlasdtest/exercise2/simpletest.cpp:6:
+C:/Program Files (x86)/mingw-w64/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/lib/gcc/i686-w64-mingw32/8.1.0/include/c++/bits/std_function.h:751:5: note: candidate: 'template<class _Res, class ... _Args> bool std::operator==(std::nullptr_t, const std::function<_Res(_ArgTypes ...)>&)'
+     operator==(nullptr_t, const function<_Res(_Args...)>& __f) noexcept
+     ^~~~~~~~
+C:/Program Files (x86)/mingw-w64/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/lib/gcc/i686-w64-mingw32/8.1.0/include/c++/bits/std_function.h:751:5: note:   template argument deduction/substitution failed:
+In file included from zlasdtest/exercise2/../../stack/vec/stackvec.hpp:96,
+                 from zlasdtest/exercise2/simpletest.cpp:9:
+zlasdtest/exercise2/../../stack/vec/stackvec.cpp:165:17: note:   'const lasd::StackVec<int>' is not derived from 'const std::function<_Res(_ArgTypes ...)>'
+   return !(this == newVec);
+           ~~~~~~^~~~~~~~~~
+zlasdtest/exercise2/../../stack/vec/stackvec.cpp: In instantiation of 'void lasd::StackVec<Data>::Expand() [with Data = std::__cxx11::basic_string<char>]':
+zlasdtest/exercise2/../../stack/vec/stackvec.cpp:66:5:   required from 'void lasd::StackVec<Data>::Push(const Data&) [with Data = std::__cxx11::basic_string<char>]'
+zlasdtest/exercise2/../../stack/vec/stackvec.cpp:18:14:   required from 'lasd::StackVec<Data>::StackVec(const lasd::LinearContainer<Data>&) [with Data = std::__cxx11::basic_string<char>]'
+zlasdtest/exercise2/simpletest.cpp:161:41:   required from here
+zlasdtest/exercise2/../../stack/vec/stackvec.cpp:140:11: error: 'Resize' was not declared in this scope, and no declarations were found by argument-dependent lookup at the point of instantiation [-fpermissive]
+     Resize(size * 2);
+     ~~~~~~^~~~~~~~~~
+zlasdtest/exercise2/../../stack/vec/stackvec.cpp:140:11: note: declarations in dependent base 'lasd::Vector<std::__cxx11::basic_string<char> >' are not found by unqualified lookup
+zlasdtest/exercise2/../../stack/vec/stackvec.cpp:140:11: note: use 'this->Resize' instead
+In file included from zlasdtest/exercise2/../../stack/lst/stacklst.hpp:99,
+                 from zlasdtest/exercise2/simpletest.cpp:10:
+zlasdtest/exercise2/../../stack/lst/stacklst.cpp: In instantiation of 'void lasd::StackLst<Data>::Push(const Data&) [with Data = std::__cxx11::basic_string<char>]':
+zlasdtest/exercise2/../../stack/lst/stacklst.cpp:56:6:   required from here
+zlasdtest/exercise2/../../stack/lst/stacklst.cpp:58:16: error: 'insertAtFront' was not declared in this scope
+   insertAtFront(val);
+   ~~~~~~~~~~~~~^~~~~
+zlasdtest/exercise2/../../stack/lst/stacklst.cpp:58:16: note: suggested alternative: 'InsertAtFront'
+   insertAtFront(val);
+   ~~~~~~~~~~~~~^~~~~
+   InsertAtFront
+zlasdtest/exercise2/../../stack/lst/stacklst.cpp: In instantiation of 'void lasd::StackLst<Data>::Push(Data&&) [with Data = std::__cxx11::basic_string<char>]':
+zlasdtest/exercise2/../../stack/lst/stacklst.cpp:62:6:   required from here
+zlasdtest/exercise2/../../stack/lst/stacklst.cpp:64:16: error: 'insertAtFront' was not declared in this scope
+   insertAtFront(std::move(val));
+   ~~~~~~~~~~~~~^~~~~~~~~~~~~~~~
+zlasdtest/exercise2/../../stack/lst/stacklst.cpp:64:16: note: suggested alternative: 'InsertAtFront'
+   insertAtFront(std::move(val));
+   ~~~~~~~~~~~~~^~~~~~~~~~~~~~~~
+   InsertAtFront
+zlasdtest/exercise2/../../stack/lst/stacklst.cpp: In instantiation of 'void lasd::StackLst<Data>::Push(const Data&) [with Data = double]':
+zlasdtest/exercise2/../../stack/lst/stacklst.cpp:56:6:   required from here
+zlasdtest/exercise2/../../stack/lst/stacklst.cpp:58:16: error: 'insertAtFront' was not declared in this scope
+   insertAtFront(val);
+   ~~~~~~~~~~~~~^~~~~
+zlasdtest/exercise2/../../stack/lst/stacklst.cpp:58:16: note: suggested alternative: 'InsertAtFront'
+   insertAtFront(val);
+   ~~~~~~~~~~~~~^~~~~
+   InsertAtFront
+zlasdtest/exercise2/../../stack/lst/stacklst.cpp: In instantiation of 'void lasd::StackLst<Data>::Push(Data&&) [with Data = double]':
+zlasdtest/exercise2/../../stack/lst/stacklst.cpp:62:6:   required from here
+zlasdtest/exercise2/../../stack/lst/stacklst.cpp:64:16: error: 'insertAtFront' was not declared in this scope
+   insertAtFront(std::move(val));
+   ~~~~~~~~~~~~~^~~~~~~~~~~~~~~~
+zlasdtest/exercise2/../../stack/lst/stacklst.cpp:64:16: note: suggested alternative: 'InsertAtFront'
+   insertAtFront(std::move(val));
+   ~~~~~~~~~~~~~^~~~~~~~~~~~~~~~
+   InsertAtFront
+zlasdtest/exercise2/../../stack/lst/stacklst.cpp: In instantiation of 'void lasd::StackLst<Data>::Push(const Data&) [with Data = int]':
+zlasdtest/exercise2/../../stack/lst/stacklst.cpp:56:6:   required from here
+zlasdtest/exercise2/../../stack/lst/stacklst.cpp:58:16: error: 'insertAtFront' was not declared in this scope
+   insertAtFront(val);
+   ~~~~~~~~~~~~~^~~~~
+zlasdtest/exercise2/../../stack/lst/stacklst.cpp:58:16: note: suggested alternative: 'InsertAtFront'
+   insertAtFront(val);
+   ~~~~~~~~~~~~~^~~~~
+   InsertAtFront
+zlasdtest/exercise2/../../stack/lst/stacklst.cpp: In instantiation of 'void lasd::StackLst<Data>::Push(Data&&) [with Data = int]':
+zlasdtest/exercise2/../../stack/lst/stacklst.cpp:62:6:   required from here
+zlasdtest/exercise2/../../stack/lst/stacklst.cpp:64:16: error: 'insertAtFront' was not declared in this scope
+   insertAtFront(std::move(val));
+   ~~~~~~~~~~~~~^~~~~~~~~~~~~~~~
+zlasdtest/exercise2/../../stack/lst/stacklst.cpp:64:16: note: suggested alternative: 'InsertAtFront'
+   insertAtFront(std::move(val));
+   ~~~~~~~~~~~~~^~~~~~~~~~~~~~~~
+   InsertAtFront
+In file included from zlasdtest/exercise2/../../stack/vec/stackvec.hpp:96,
+                 from zlasdtest/exercise2/simpletest.cpp:9:
+zlasdtest/exercise2/../../stack/vec/stackvec.cpp: In instantiation of 'void lasd::StackVec<Data>::Reduce() [with Data = std::__cxx11::basic_string<char>]':
+zlasdtest/exercise2/../../stack/vec/stackvec.cpp:107:5:   required from 'void lasd::StackVec<Data>::Pop() [with Data = std::__cxx11::basic_string<char>]'
+zlasdtest/exercise2/../../stack/vec/stackvec.cpp:104:6:   required from here
+zlasdtest/exercise2/../../stack/vec/stackvec.cpp:145:11: error: 'Resize' was not declared in this scope, and no declarations were found by argument-dependent lookup at the point of instantiation [-fpermissive]
+     Resize(size - (size / 4));
+     ~~~~~~^~~~~~~~~~~~~~~~~~~
+zlasdtest/exercise2/../../stack/vec/stackvec.cpp:145:11: note: declarations in dependent base 'lasd::Vector<std::__cxx11::basic_string<char> >' are not found by unqualified lookup
+zlasdtest/exercise2/../../stack/vec/stackvec.cpp:145:11: note: use 'this->Resize' instead
+zlasdtest/exercise2/../../stack/vec/stackvec.cpp: In instantiation of 'void lasd::StackVec<Data>::Expand() [with Data = double]':
+zlasdtest/exercise2/../../stack/vec/stackvec.cpp:66:5:   required from 'void lasd::StackVec<Data>::Push(const Data&) [with Data = double]'
+zlasdtest/exercise2/../../stack/vec/stackvec.cpp:63:6:   required from here
+zlasdtest/exercise2/../../stack/vec/stackvec.cpp:140:11: error: 'Resize' was not declared in this scope, and no declarations were found by argument-dependent lookup at the point of instantiation [-fpermissive]
+     Resize(size * 2);
+     ~~~~~~^~~~~~~~~~
+zlasdtest/exercise2/../../stack/vec/stackvec.cpp:140:11: note: declarations in dependent base 'lasd::Vector<double>' are not found by unqualified lookup
+zlasdtest/exercise2/../../stack/vec/stackvec.cpp:140:11: note: use 'this->Resize' instead
+zlasdtest/exercise2/../../stack/vec/stackvec.cpp: In instantiation of 'void lasd::StackVec<Data>::Reduce() [with Data = double]':
+zlasdtest/exercise2/../../stack/vec/stackvec.cpp:107:5:   required from 'void lasd::StackVec<Data>::Pop() [with Data = double]'
+zlasdtest/exercise2/../../stack/vec/stackvec.cpp:104:6:   required from here
+zlasdtest/exercise2/../../stack/vec/stackvec.cpp:145:11: error: 'Resize' was not declared in this scope, and no declarations were found by argument-dependent lookup at the point of instantiation [-fpermissive]
+     Resize(size - (size / 4));
+     ~~~~~~^~~~~~~~~~~~~~~~~~~
+zlasdtest/exercise2/../../stack/vec/stackvec.cpp:145:11: note: declarations in dependent base 'lasd::Vector<double>' are not found by unqualified lookup
+zlasdtest/exercise2/../../stack/vec/stackvec.cpp:145:11: note: use 'this->Resize' instead
+zlasdtest/exercise2/../../stack/vec/stackvec.cpp: In instantiation of 'void lasd::StackVec<Data>::Expand() [with Data = int]':
+zlasdtest/exercise2/../../stack/vec/stackvec.cpp:66:5:   required from 'void lasd::StackVec<Data>::Push(const Data&) [with Data = int]'
+zlasdtest/exercise2/../../stack/vec/stackvec.cpp:63:6:   required from here
+zlasdtest/exercise2/../../stack/vec/stackvec.cpp:140:11: error: 'Resize' was not declared in this scope, and no declarations were found by argument-dependent lookup at the point of instantiation [-fpermissive]
+     Resize(size * 2);
+     ~~~~~~^~~~~~~~~~
+zlasdtest/exercise2/../../stack/vec/stackvec.cpp:140:11: note: declarations in dependent base 'lasd::Vector<int>' are not found by unqualified lookup
+zlasdtest/exercise2/../../stack/vec/stackvec.cpp:140:11: note: use 'this->Resize' instead
+zlasdtest/exercise2/../../stack/vec/stackvec.cpp: In instantiation of 'void lasd::StackVec<Data>::Reduce() [with Data = int]':
+zlasdtest/exercise2/../../stack/vec/stackvec.cpp:107:5:   required from 'void lasd::StackVec<Data>::Pop() [with Data = int]'
+zlasdtest/exercise2/../../stack/vec/stackvec.cpp:104:6:   required from here
+zlasdtest/exercise2/../../stack/vec/stackvec.cpp:145:11: error: 'Resize' was not declared in this scope, and no declarations were found by argument-dependent lookup at the point of instantiation [-fpermissive]
+     Resize(size - (size / 4));
+     ~~~~~~^~~~~~~~~~~~~~~~~~~
+zlasdtest/exercise2/../../stack/vec/stackvec.cpp:145:11: note: declarations in dependent base 'lasd::Vector<int>' are not found by unqualified lookup
+zlasdtest/exercise2/../../stack/vec/stackvec.cpp:145:11: note: use 'this->Resize' instead
+zlasdtest/exercise2/../../stack/vec/stackvec.cpp: In member function 'bool lasd::StackVec<Data>::operator==(const lasd::StackVec<Data>&) const [with Data = int]':
+zlasdtest/exercise2/../../stack/vec/stackvec.cpp:153:27: warning: control reaches end of non-void function [-Wreturn-type]
+   if(sentinella == newVec.sentinella)
+                    ~~~~~~~^~~~~~~~~~
+zlasdtest/exercise2/../../stack/vec/stackvec.cpp: In member function 'bool lasd::StackVec<Data>::operator==(const lasd::StackVec<Data>&) const [with Data = std::__cxx11::basic_string<char>]':
+zlasdtest/exercise2/../../stack/vec/stackvec.cpp:153:27: warning: control reaches end of non-void function [-Wreturn-type]
+   if(sentinella == newVec.sentinella)
+                    ~~~~~~~^~~~~~~~~~

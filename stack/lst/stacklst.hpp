@@ -31,7 +31,7 @@ protected:
 
 public:
 
-  // Default constructor, senza parametri.
+  // Default constructor, senza parametri. dovrebbe richiamare quello di List
   StackLst() = default;
 
   // StackLst() specifier;
@@ -74,12 +74,12 @@ public:
 
   //metodi pubblici, fare ovverride
   void Push(const Data& val); // Override Stack member (copy of the value) //DONE
-  void Push(Data&& val); // Override Stack member (move of the value)     //DONE
+  void Push(Data&& val) noexcept; // Override Stack member (move of the value)     //DONE
 
 
   /****************************************************************************/
 
-  Data& Top() override; // Override Stack member (must throw std::length_error when empty) DONE
+  Data& Top() const override; // Override Stack member (must throw std::length_error when empty) DONE
   void Pop()  override; // Override Stack member (must throw std::length_error when empty) DONE
   Data TopNPop() override; // Override Stack member (must throw std::length_error when empty) DONE
 

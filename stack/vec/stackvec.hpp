@@ -25,7 +25,7 @@ protected:
 
   using Vector<Data>::size;
   using Vector<Data>::Elements;
-  int indice = -1; // forse dovrebbe essere -1
+  int indice = 0; // forse dovrebbe essere -1
   int sentinella = 0;
 
 public:
@@ -78,9 +78,9 @@ public:
   /* ************************************************************************ */
 
   // Specific member functions (inherited from Container)
-  bool Empty() override; // Override Container member     DONE
-  unsigned long Size() override; // Override Container member DONE
-  void Clear() override; // Override Container member DONE
+  bool Empty() const noexcept; // Override Container member     DONE
+  unsigned long Size() const noexcept; // Override Container member DONE
+  void Clear() ; // Override Container member DONE
 
 protected:
   // Auxiliary member functions
