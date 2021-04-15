@@ -33,10 +33,10 @@ public:
   /* ************************************************************************ */
 
   // Copy assignment
-  bool operator=(const Stack<Data>&) = delete; // Copy assignment of abstract types should not be possible.
+  Stack& operator=(const Stack<Data>&) = delete; // Copy assignment of abstract types should not be possible.
 
   // Move assignment
-  bool operator=(Stack<Data>&&) = delete; // Move assignment of abstract types should not be possible.
+  Stack& operator=(Stack<Data>&&) = delete; // Move assignment of abstract types should not be possible.
 
   /* ************************************************************************ */
 

@@ -5,9 +5,11 @@ namespace lasd
 /* ***************************************************************************/
 
 template <typename Data>
-StackLst<Data>::StackLst(const LinearContainer<Data>& con):List<Data>::List(con)
+StackLst<Data>::StackLst(const LinearContainer<Data>& con)
 {
-
+  unsigned int currSize = con.Size();
+  for( unsigned int i = 0;  i < currSize; i++)
+    List<Data>::InsertAtBack(con[i]);
 }
 // Copy constructor
 template <typename Data>
