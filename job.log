@@ -1,0 +1,13 @@
+In file included from zlasdtest/exercise2/../../stack/lst/stacklst.hpp:99,
+                 from zlasdtest/exercise2/simpletest.cpp:10:
+zlasdtest/exercise2/../../stack/lst/stacklst.cpp: In instantiation of 'lasd::StackLst<Data>::StackLst(const lasd::LinearContainer<Data>&) [with Data = std::__cxx11::basic_string<char>]':
+zlasdtest/exercise2/simpletest.cpp:166:41:   required from here
+zlasdtest/exercise2/../../stack/lst/stacklst.cpp:8:80: error: binding reference of type 'lasd::LinearContainer<std::__cxx11::basic_string<char> >&' to 'const lasd::LinearContainer<std::__cxx11::basic_string<char> >' discards qualifiers
+ StackLst<Data>::StackLst(const LinearContainer<Data>& con):List<Data>::List(con)
+                                                                                ^
+In file included from zlasdtest/exercise2/../../stack/lst/../../list/list.hpp:168,
+                 from zlasdtest/exercise2/../../stack/lst/stacklst.hpp:8,
+                 from zlasdtest/exercise2/simpletest.cpp:10:
+zlasdtest/exercise2/../../stack/lst/../../list/list.cpp:13:1: note:   initializing argument 1 of 'lasd::List<Data>::List(lasd::LinearContainer<Data>&) [with Data = std::__cxx11::basic_string<char>]'
+ List<Data>::List(LinearContainer<Data>& con)
+ ^~~~~~~~~~

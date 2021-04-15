@@ -10,21 +10,17 @@ StackVec<Data>::StackVec() //costruttore senza parametri
 }
 
 template<typename Data>
-StackVec<Data>::StackVec(const LinearContainer<Data>& con)
+StackVec<Data>::StackVec(const LinearContainer<Data>& con):Vector<Data>::Vector(con)
 {
-  Vector<Data>::Resize(con.Size());
-  unsigned int sizeReal = con.Size();
-  for(unsigned int i = sizeReal; i > 0; i--)
-    Push(con[i - 1]);
-  //return non serve perchè, stai riempiendo la classe dell'oggetto attuale istanziato.
+  indice = con.Size() - 1;
 }
+
 //Copy assignment
 template <typename Data>
 StackVec<Data>& StackVec<Data>::operator=(const StackVec<Data>& newVec)
 {
   Vector<Data>::operator=(newVec);
   indice = newVec.indice;
-  sentinella = newVec.sentinella;
   return *this;
 }
 //move assignment
@@ -33,7 +29,6 @@ StackVec<Data>& StackVec<Data>::operator=(StackVec<Data>&& newVec) noexcept
 {
   Vector<Data>::operator=(std::move(newVec));
   std::swap(indice, newVec.indice);
-  std::swap(sentinella, newVec.sentinella);
   return *this;
 }
 
@@ -42,7 +37,6 @@ template<typename Data>
 StackVec<Data>::StackVec(const StackVec<Data>& newVec):Vector<Data>(newVec)
 {
   indice = newVec.indice;
-  sentinella = newVec.sentinella;
   //la size la fa nel costruttore di vector<int> v;
 }
 
@@ -52,7 +46,6 @@ StackVec<Data>::StackVec(StackVec<Data>&& vec) noexcept
 {
     std::swap(Elements, vec.Elements);
     std::swap(indice, vec.indice);
-    std::swap(sentinella, vec.sentinella);
     std::swap(size, vec.size);
 }
 
@@ -61,61 +54,36 @@ StackVec<Data>::StackVec(StackVec<Data>&& vec) noexcept
 template <typename Data>
 void StackVec<Data>::Push(const Data& val)
 {
-  if(sentinella == size - 1)
+  if((indice + 1) == (size - 1) )
     Expand();
-  if(sentinella == 0)
-  {
-    Elements[sentinella] = val;
-    sentinella++; // == 1
-    //index == 0;
-  }
-  else
-  {
-    Elements[sentinella] = val;
-    indice++;
-    sentinella++;
-  }
+
+  Elements[indice + 1] = val;
+  indice++;
 }
 
 //move PUSH
 template <typename Data>
 void StackVec<Data>::Push(Data&& val) noexcept
 {
-  if(sentinella == size - 1)
+  if((indice + 1) == (size - 1))
   {
     Expand();
   }
-  if(sentinella == 0)
-  {
-    Elements[sentinella] = std::move(val);
-    sentinella++; // == 1
-    //index == 0;
-  }
-  else
-  {
-    Elements[sentinella] = std::move(val);
-    indice++;
-    sentinella++;
-  }
+  Elements[indice + 1] = std::move(val);
+  indice++;
 }
 
 template <typename Data>
 void StackVec<Data>::Pop()
 {
-  if(sentinella == (size/2))
+  if((indice + 1)== (size/2))
   {
     Reduce();
   }
-
-  if(sentinella == 0)
-  {
-    throw std::length_error("impossibile effettuare pop su stack vuoto!");
-  }
+  if(indice == -1)
+      throw std::length_error("Impossibile accedere al primo elemento di uno stack vuoto!");
   else
-  {
     indice--;
-    sentinella--;
-  }
 }
 
 //TopNPop
@@ -130,7 +98,7 @@ Data StackVec<Data>::TopNPop()
 template <typename Data>
 Data& StackVec<Data>::Top() const
 {
-  if(sentinella > 0)
+  if(indice > -1)
     return Elements[indice];
   else
     throw std::length_error("Impossibile accedere al primo elemento di uno stack vuoto!");
@@ -150,19 +118,33 @@ void StackVec<Data>::Reduce()
 template <typename Data>
 bool StackVec<Data>::operator==(const StackVec<Data>& newVec) const noexcept
 {
-  return Vector<Data>::operator==(newVec);
+  if(Size() != newVec.Size())
+    return false;
+  else
+  {
+    bool buff = true;
+    unsigned long i = 0;
+    while(buff && i < Size())
+    {
+      if(Elements[i] != newVec.Elements[i])
+        buff = false;
+      i++;
+    }
+    return buff;
+  }
+  return true;
 }
 //operator !=
 template <typename Data>
 bool StackVec<Data>::operator!=(const StackVec<Data>& newVec) const noexcept
 {
-  return !(Vector<Data>::operator==(newVec));
+  return !(*this==newVec);
 }
 
 template <typename Data>
 bool StackVec<Data>::Empty() const noexcept
 {
-  if(sentinella == 0)
+  if(indice == -1)
     return true;
   else
     return false;
@@ -171,15 +153,15 @@ bool StackVec<Data>::Empty() const noexcept
 template <typename Data>
 unsigned long StackVec<Data>::Size() const noexcept
 {
-  return sentinella;
+  return indice + 1;
 }
 
 template <typename Data>
 void StackVec<Data>::Clear()
 {
   Vector<Data>::Clear();
-  sentinella = 0;
-  indice = 0;
+  Vector<Data>::Resize(1);
+  indice = -1;
 }
 /* ************************************************************************** */
 

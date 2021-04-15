@@ -25,12 +25,10 @@ protected:
 
   using Vector<Data>::size;
   using Vector<Data>::Elements;
-  // int indice = 0; // forse dovrebbe essere -1
-  //int sentinella = 0;
+  int indice = -1; // forse dovrebbe essere -1
 
 public:
-  int indice = 0; // forse dovrebbe essere -1
-  int sentinella = 0;
+
   // Default constructor
   StackVec(); //DONE
   /* ************************************************************************ */
