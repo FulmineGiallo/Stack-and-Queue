@@ -26,6 +26,7 @@ protected:
 
 public:
 
+  Stack() = default;
   // Destructor
   ~Stack() = default;
 

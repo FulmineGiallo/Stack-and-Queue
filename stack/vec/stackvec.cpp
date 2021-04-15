@@ -3,22 +3,21 @@ namespace lasd
 {
 
 /* ************************************************************************** */
-
 template<typename Data>
 StackVec<Data>::StackVec() //costruttore senza parametri
 {
-  Elements = new Data[1];
-  size = 1;
+  Vector<Data>::Resize(1);
 }
 
 template<typename Data>
 StackVec<Data>::StackVec(const LinearContainer<Data>& con)
 {
-  for(unsigned int i = con.Size(); i > 0; i--)
-    /*this.*/Push(con[i - 1]);
+  Vector<Data>::Resize(con.Size());
+  unsigned int sizeReal = con.Size();
+  for(unsigned int i = sizeReal; i > 0; i--)
+    Push(con[i - 1]);
   //return non serve perchè, stai riempiendo la classe dell'oggetto attuale istanziato.
 }
-
 //Copy assignment
 template <typename Data>
 StackVec<Data>& StackVec<Data>::operator=(const StackVec<Data>& newVec)
@@ -64,7 +63,7 @@ void StackVec<Data>::Push(const Data& val)
 {
   if(sentinella == size - 1)
     Expand();
-  if(indice == 0 && sentinella == 0)
+  if(sentinella == 0)
   {
     Elements[sentinella] = val;
     sentinella++; // == 1
@@ -86,7 +85,7 @@ void StackVec<Data>::Push(Data&& val) noexcept
   {
     Expand();
   }
-  if(indice == 0 && sentinella == 0)
+  if(sentinella == 0)
   {
     Elements[sentinella] = std::move(val);
     sentinella++; // == 1
@@ -104,8 +103,11 @@ template <typename Data>
 void StackVec<Data>::Pop()
 {
   if(sentinella == (size/2))
+  {
     Reduce();
-  if(sentinella == 0 && indice == 0)
+  }
+
+  if(sentinella == 0)
   {
     throw std::length_error("impossibile effettuare pop su stack vuoto!");
   }
@@ -128,7 +130,7 @@ Data StackVec<Data>::TopNPop()
 template <typename Data>
 Data& StackVec<Data>::Top() const
 {
-  if(sentinella != 0)
+  if(sentinella > 0)
     return Elements[indice];
   else
     throw std::length_error("Impossibile accedere al primo elemento di uno stack vuoto!");
@@ -148,35 +150,22 @@ void StackVec<Data>::Reduce()
 template <typename Data>
 bool StackVec<Data>::operator==(const StackVec<Data>& newVec) const noexcept
 {
-  /*
-  if(sentinella < newVec.sentinella || sentinella > newVec.sentinella)
-    return false;
-  if(sentinella == newVec.sentinella)
-  {
-    if(this == newVec.Elements)
-      return true;
-    else
-      return false;
-  }
-  */
-  return false;
+  return Vector<Data>::operator==(newVec);
 }
 //operator !=
 template <typename Data>
 bool StackVec<Data>::operator!=(const StackVec<Data>& newVec) const noexcept
 {
-
-  //return !(this == newVec);
-  return false;
+  return !(Vector<Data>::operator==(newVec));
 }
 
 template <typename Data>
 bool StackVec<Data>::Empty() const noexcept
 {
   if(sentinella == 0)
-    return false;
-  else
     return true;
+  else
+    return false;
 }
 
 template <typename Data>
