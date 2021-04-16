@@ -14,17 +14,13 @@ QueueLst<Data>::QueueLst(const LinearContainer<Data>& con)
 
 //Copy constructor
 template <typename Data>
-QueueLst<Data>::QueueLst(const QueueLst<Data>& newQueue)
-{
-  *this = newQueue;
-}
+QueueLst<Data>::QueueLst(const QueueLst<Data>& newQueue):List<Data>::List(newQueue)
+{}
 
 //Move constructor
 template <typename Data>
-QueueLst<Data>::QueueLst(QueueLst<Data>&& newQueue) noexcept
-{
-  *this = std::move(newQueue);
-}
+QueueLst<Data>::QueueLst(QueueLst<Data>&& newQueue) noexcept :List<Data>(std::move(newQueue))
+{}
 
 //Copy assignment
 template <typename Data>

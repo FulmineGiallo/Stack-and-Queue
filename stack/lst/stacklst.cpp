@@ -14,17 +14,13 @@ StackLst<Data>::StackLst(const LinearContainer<Data>& con)
 
 // Copy constructor
 template <typename Data>
-StackLst<Data>::StackLst(const StackLst<Data>& newStack)
-{
-   *this = newStack;
-}
+StackLst<Data>::StackLst(const StackLst<Data>& newStack):List<Data>::List(newStack)
+{}
 
 //move constructor
 template <typename Data>
-StackLst<Data>::StackLst(StackLst<Data>&& newStack) noexcept
-{
-   *this = std::move(newStack);
-}
+StackLst<Data>::StackLst(StackLst<Data>&& newStack) noexcept :List<Data>(std::move(newStack))
+{}
 
 // Copy assignment
 template <typename Data>

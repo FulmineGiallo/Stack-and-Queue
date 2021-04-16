@@ -353,7 +353,7 @@ void stestQueue(unsigned int& testnum, unsigned int& testerr) {
 
 void testSimpleExercise2() {
   unsigned int testnum = 0, testerr = 0;
-  //stestStack(testnum, testerr);
-  stestQueue(testnum, testerr);
+  stestStack(testnum, testerr);
+  //stestQueue(testnum, testerr);
   cout << endl << "Exercise 2 (Simple Test) (Errors/Tests: " << testerr << "/" << testnum << ")" << endl;
 }
