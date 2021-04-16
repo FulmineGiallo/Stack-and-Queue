@@ -184,7 +184,7 @@ void stestStack(unsigned int& testnum, unsigned int& testerr) {
 }
 
 /* ************************************************************************** */
-/*
+
 template <typename Que>
 void stestQueueInt(Que& que, unsigned int& testnum, unsigned int& testerr) {
   unsigned int loctestnum = 0, loctesterr = 0;
@@ -353,7 +353,7 @@ void stestQueue(unsigned int& testnum, unsigned int& testerr) {
 
 void testSimpleExercise2() {
   unsigned int testnum = 0, testerr = 0;
-  stestStack(testnum, testerr);
-  //stestQueue(testnum, testerr);
+  //stestStack(testnum, testerr);
+  stestQueue(testnum, testerr);
   cout << endl << "Exercise 2 (Simple Test) (Errors/Tests: " << testerr << "/" << testnum << ")" << endl;
 }

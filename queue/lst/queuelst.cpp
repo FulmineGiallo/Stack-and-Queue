@@ -2,20 +2,28 @@
 namespace lasd {
 
 /* ************************************************************************** */
+template <typename Data>
+QueueLst<Data>::QueueLst(const LinearContainer<Data>& con)
+{
+  // unsigned int currSize = con.Size();
+  // for(int i = 0; i < currSize; i++);
+  // {
+  //   List<Data>::InsertAtFront(con[i]);
+  // }
+}
+
 //Copy constructor
 template <typename Data>
 QueueLst<Data>::QueueLst(const QueueLst<Data>& newQueue)
 {
-  testa = newQueue.testa;
-  coda  = newQueue.coda;
+  *this = newQueue;
 }
 
 //Move constructor
 template <typename Data>
 QueueLst<Data>::QueueLst(QueueLst<Data>&& newQueue) noexcept
 {
-  testa = std::move(newQueue.testa);
-  coda =  std::move(newQueue.coda);
+  *this = std::move(newQueue);
 }
 
 //Copy assignment
