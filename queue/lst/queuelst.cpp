@@ -27,7 +27,7 @@ QueueLst<Data>& QueueLst<Data>::operator=(const QueueLst<Data>& newQueue)
 }
 //Move assignment
 template <typename Data>
-QueueLst<Data>& QueueLst<Data>::operator=(QueueLst<Data>&& newQueue)
+QueueLst<Data>& QueueLst<Data>::operator=(QueueLst<Data>&& newQueue) noexcept
 {
   List<Data>::operator=(std::move(newQueue));
   return *this;
@@ -35,13 +35,13 @@ QueueLst<Data>& QueueLst<Data>::operator=(QueueLst<Data>&& newQueue)
 
 // Comparison operators ==
 template <typename Data>
-bool operator==(const QueueLst<Data>& newQueue) const noexcept
+bool QueueLst<Data>::operator==(const QueueLst<Data>& newQueue) const noexcept
 {
   return List<Data>::operator==(newQueue);
 }
 // Comparison operators !=
 template <typename Data>
-bool operator!=(const QueueLst<Data>& newQueue) const noexcept
+bool QueueLst<Data>::operator!=(const QueueLst<Data>& newQueue) const noexcept
 {
   return !(*this == newQueue);
 }
@@ -54,7 +54,7 @@ void QueueLst<Data>::Enqueue(const Data& val)
 }
 //Move PUSH
 template <typename Data>
-void QueueLst<Data>::Enqueue(Data&& val)
+void QueueLst<Data>::Enqueue(Data&& val) noexcept
 {
   List<Data>::InsertAtBack(std::move(val));
 }

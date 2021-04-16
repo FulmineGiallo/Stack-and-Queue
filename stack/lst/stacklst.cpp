@@ -11,6 +11,7 @@ StackLst<Data>::StackLst(const LinearContainer<Data>& con)
   for( unsigned int i = 0;  i < currSize; i++)
     List<Data>::InsertAtBack(con[i]);
 }
+
 // Copy constructor
 template <typename Data>
 StackLst<Data>::StackLst(const StackLst<Data>& newStack)
@@ -24,6 +25,7 @@ StackLst<Data>::StackLst(StackLst<Data>&& newStack) noexcept
 {
    *this = std::move(newStack);
 }
+
 // Copy assignment
 template <typename Data>
 StackLst<Data>& StackLst<Data>::operator=(const StackLst& newStack)

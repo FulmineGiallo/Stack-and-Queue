@@ -54,16 +54,16 @@ public:
   /* ************************************************************************ */
 
   // Copy assignment
-  QueueLst<Data>& operator=(const QueueLst<Data>&);
+  QueueLst<Data>& operator=(const QueueLst<Data>& newQueue);
 
   // Move assignment
-  QueueLst<Data>& operator=(QueueLst<Data>&&);
+  QueueLst<Data>& operator=(QueueLst<Data>&& newQueue) noexcept;
 
   /* ************************************************************************ */
 
   // Comparison operators
-  bool operator==(const QueueLst<Data>&) const noexcept;
-  bool operator!=(const QueueLst<Data>&) const noexcept;
+  bool operator==(const QueueLst<Data>& newQueue) const noexcept;
+  bool operator!=(const QueueLst<Data>& newQueue) const noexcept;
 
   /* ************************************************************************ */
 
@@ -77,7 +77,6 @@ public:
   Data HeadNDequeue(); // (concrete function must throw std::length_error when empty)
 
   /* ************************************************************************ */
-
   // Specific member functions (inherited from Container)
   void Clear() override; // Override Container member
 
