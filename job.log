@@ -1,0 +1,22 @@
+In file included from zlasdtest/exercise2/../../queue/lst/queuelst.hpp:92,
+                 from zlasdtest/exercise2/simpletest.cpp:14:
+zlasdtest/exercise2/../../queue/lst/queuelst.cpp:37:32: error: 'Data' was not declared in this scope
+ bool operator==(const QueueLst<Data>& newQueue) const noexcept
+                                ^~~~
+zlasdtest/exercise2/../../queue/lst/queuelst.cpp:37:36: error: template argument 1 is invalid
+ bool operator==(const QueueLst<Data>& newQueue) const noexcept
+                                    ^
+zlasdtest/exercise2/../../queue/lst/queuelst.cpp:37:55: error: non-member function 'bool lasd::operator==(const int&)' cannot have cv-qualifier
+ bool operator==(const QueueLst<Data>& newQueue) const noexcept
+                                                       ^~~~~~~~
+zlasdtest/exercise2/../../queue/lst/queuelst.cpp:37:55: error: 'bool lasd::operator==(const int&)' must have an argument of class or enumerated type
+zlasdtest/exercise2/../../queue/lst/queuelst.cpp:42:32: error: 'Data' was not declared in this scope
+ bool operator!=(const QueueLst<Data>& newQueue) const noexcept
+                                ^~~~
+zlasdtest/exercise2/../../queue/lst/queuelst.cpp:42:36: error: template argument 1 is invalid
+ bool operator!=(const QueueLst<Data>& newQueue) const noexcept
+                                    ^
+zlasdtest/exercise2/../../queue/lst/queuelst.cpp:42:55: error: non-member function 'bool lasd::operator!=(const int&)' cannot have cv-qualifier
+ bool operator!=(const QueueLst<Data>& newQueue) const noexcept
+                                                       ^~~~~~~~
+zlasdtest/exercise2/../../queue/lst/queuelst.cpp:42:55: error: 'bool lasd::operator!=(const int&)' must have an argument of class or enumerated type

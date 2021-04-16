@@ -14,7 +14,8 @@ namespace lasd {
 /* ************************************************************************** */
 
 template <typename Data>
-class QueueLst { // Must extend Queue<Data> and List<Data>
+class QueueLst: virtual public Queue<Data>, virtual protected List<Data>
+{
 
 private:
 
@@ -22,62 +23,64 @@ private:
 
 protected:
 
-  // using List<Data>::???;
+  using List<Data>::size;
+  using List<Data>::testa;
+  using List<Data>::coda;
 
-  // ...
 
 public:
 
   // Default constructor
-  // QueueLst() specifier;
+  QueueLst() = default;
 
   /* ************************************************************************ */
 
   // Specific constructor
-  // QueueLst(argument) specifiers; // A queue obtained from a LinearContainer
+  QueueLst(const LinearContainer<Data>& con); // A queue obtained from a LinearContainer
 
   /* ************************************************************************ */
 
   // Copy constructor
-  // QueueLst(argument);
+  QueueLst(const QueueLst<Data>& newQueue);
 
   // Move constructor
-  // QueueLst(argument);
+  QueueLst(QueueLst<Data>&& newQueue) noexcept;
 
   /* ************************************************************************ */
 
   // Destructor
-  // ~QueueLst() specifier;
+  ~QueueLst() = default;
 
   /* ************************************************************************ */
 
   // Copy assignment
-  // type operator=(argument);
+  QueueLst<Data>& operator=(const QueueLst<Data>&);
 
   // Move assignment
-  // type operator=(argument);
+  QueueLst<Data>& operator=(QueueLst<Data>&&);
 
   /* ************************************************************************ */
 
   // Comparison operators
-  // type operator==(argument) specifiers;
-  // type operator!=(argument) specifiers;
+  bool operator==(const QueueLst<Data>&) const noexcept;
+  bool operator!=(const QueueLst<Data>&) const noexcept;
 
   /* ************************************************************************ */
 
-  // Specific member functions (inherited from Queue)
+  // Specific member functions
+  void Enqueue(const Data&); // Copy of the value
+  void Enqueue(Data&&) noexcept; // Move of the value
 
-  // type Enqueue(argument) specifiers; // Override Queue member (copy of the value)
-  // type Enqueue(argument) specifiers; // Override Queue member (move of the value)
-  // type Head() specifiers; // Override Queue member (must throw std::length_error when empty)
-  // type Dequeue() specifiers; // Override Queue member (must throw std::length_error when empty)
-  // type HeadNDequeue() specifiers; // Override Queue member (must throw std::length_error when empty)
+  /************************************************************************** */
+  Data& Head() const; // (concrete function must throw std::length_error when empty)
+  void Dequeue(); // (concrete function must throw std::length_error when empty)
+  Data HeadNDequeue(); // (concrete function must throw std::length_error when empty)
 
   /* ************************************************************************ */
 
   // Specific member functions (inherited from Container)
 
-  // type Clear() specifiers; // Override Container member
+  void Clear() override; // Override Container member
 
 };
 
