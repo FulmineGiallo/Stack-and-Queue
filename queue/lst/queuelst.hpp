@@ -79,7 +79,6 @@ public:
   /* ************************************************************************ */
 
   // Specific member functions (inherited from Container)
-
   void Clear() override; // Override Container member
 
 };

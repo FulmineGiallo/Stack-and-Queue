@@ -48,12 +48,43 @@ bool operator!=(const QueueLst<Data>& newQueue) const noexcept
 
 //Copy PUSH
 template <typename Data>
-void QueueLst<Data>::Enqueue(const Data&)
+void QueueLst<Data>::Enqueue(const Data& val)
 {
-
+  List<Data>::InsertAtBack(val);
+}
+//Move PUSH
+template <typename Data>
+void QueueLst<Data>::Enqueue(Data&& val)
+{
+  List<Data>::InsertAtBack(std::move(val));
 }
 
+template <typename Data>
+Data& QueueLst<Data>::Head() const
+{
+  return List<Data>::Front();
+}
 
+template <typename Data>
+void QueueLst<Data>::Dequeue()
+{
+  List<Data>::RemoveFromFront();
+}
+
+template <typename Data>
+Data QueueLst<Data>::HeadNDequeue()
+{
+  Data valueRemoved;
+  valueRemoved = Head();
+  Dequeue();
+  return valueRemoved;
+}
+
+template <typename Data>
+void QueueLst<Data>::Clear()
+{
+  List<Data>::Clear();
+}
 /* ************************************************************************** */
 
 }
