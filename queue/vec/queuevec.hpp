@@ -23,16 +23,17 @@ private:
 
 protected:
 
-  using Vector<Data>::size;
+
   using Vector<Data>::Elements;
-  int sentinella = 0;
-  int index  = 0;
-  unsigned long sizeEffettiva = 0;
+
 
 
 
 public:
-
+  int testa = 0;
+  int coda  = 0;
+  using Vector<Data>::size;
+  unsigned long sizeEffettiva = 0;
   // Default constructor
   QueueVec();
 
