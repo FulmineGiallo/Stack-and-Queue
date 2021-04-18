@@ -15,7 +15,7 @@ namespace lasd {
 
 template <typename Data>
 class QueueVec: virtual public Queue<Data>, virtual protected Vector<Data>
-{ // Must extend Queue<Data> and Vector<Data>
+{
 
 private:
 
@@ -25,10 +25,11 @@ protected:
 
   using Vector<Data>::size;
   using Vector<Data>::Elements;
-  int testa = 0;
-  int coda  = 0;
-  // ...
-  //si parte da 1, cosi abbiamo la pos 0 come sentinella per il resize
+  int sentinella = 0;
+  int index  = 0;
+  unsigned long sizeEffettiva = 0;
+
+
 
 public:
 
@@ -89,8 +90,8 @@ protected:
 
   // Auxiliary member functions
 
-  // type Expand() specifiers;
-  // type Reduce() specifiers;
+  void Expand();
+  void Reduce();
   // type SwapVectors(arguments) specifiers;
 
 };
