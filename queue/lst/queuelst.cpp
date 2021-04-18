@@ -5,11 +5,9 @@ namespace lasd {
 template <typename Data>
 QueueLst<Data>::QueueLst(const LinearContainer<Data>& con)
 {
-  // unsigned int currSize = con.Size();
-  // for(int i = 0; i < currSize; i++);
-  // {
-  //   List<Data>::InsertAtFront(con[i]);
-  // }
+  unsigned int currSize = con.Size();
+  for( unsigned int i = 0;  i < currSize; i++)
+    List<Data>::InsertAtBack(con[i]);
 }
 
 //Copy constructor

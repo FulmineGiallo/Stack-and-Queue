@@ -17,13 +17,12 @@ int main()
 {
   std::cout << "Lasd Libraries 2020" << std::endl;
   lasdtest();
-
+  //
   // lasd::QueueVec<int> coda;
   // coda.Enqueue(1);
-  // coda.Enqueue(2);
-  // coda.Enqueue(2);
-  // coda.Enqueue(2);
-  //
+  // coda.Enqueue(1);
+  // coda.Enqueue(1);
+  // coda.Enqueue(1);
   // cout << "Testa : " << coda.testa << endl;
   // cout << "Coda  : " << coda.coda << endl;
   // cout << "Size Effettiva : "<< coda.sizeEffettiva << endl;
@@ -32,7 +31,11 @@ int main()
   // coda.Dequeue();
   // coda.Dequeue();
   // coda.Dequeue();
-  // coda.Enqueue(2);
+  // coda.Dequeue();
+  //
+  // // coda.Dequeue();
+  // // coda.Dequeue();
+  // //
   // cout << "Testa : " << coda.testa << endl;
   // cout << "Coda  : " << coda.coda << endl;
   // cout << "Size Effettiva : "<< coda.sizeEffettiva << endl;

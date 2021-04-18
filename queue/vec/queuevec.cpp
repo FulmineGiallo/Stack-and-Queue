@@ -11,9 +11,11 @@ QueueVec<Data>::QueueVec() //costruttore senza parametri
 }
 
 template<typename Data>
-QueueVec<Data>::QueueVec(const LinearContainer<Data>& con)
+QueueVec<Data>::QueueVec(const LinearContainer<Data>& con):Vector<Data>::Vector(con)
 {
-
+  testa = 0;
+  coda = con.Size();
+  sizeEffettiva = con.Size() - 1;
 }
 
 //Copy assignment
@@ -63,8 +65,8 @@ QueueVec<Data>::QueueVec(QueueVec<Data>&& newVec) noexcept
 template <typename Data>
 void QueueVec<Data>::Enqueue(const Data& val)
 {
-  if(coda % Vector<Data>::Size() == testa)
-    Expand();
+    if(sizeEffettiva == Vector<Data>::Size())
+      Expand();
     if(testa == coda)
     {
       Elements[testa] = std::move(val);
@@ -83,7 +85,7 @@ void QueueVec<Data>::Enqueue(const Data& val)
 template <typename Data>
 void QueueVec<Data>::Enqueue(Data&& val) noexcept
 {
-    if(coda % Vector<Data>::Size()  == testa)
+    if(sizeEffettiva == Vector<Data>::Size())
       Expand();
     if(testa == coda)
     {
@@ -102,6 +104,11 @@ void QueueVec<Data>::Enqueue(Data&& val) noexcept
 template <typename Data>
 void QueueVec<Data>::Dequeue()
 {
+  //Aggiungere il Reduce();
+  if(sizeEffettiva == size / 2)
+  {
+    Reduce();
+  }
   if(sizeEffettiva == 0)
     throw std::length_error("Impossibile accedere al primo elemento di uno Coda vuoto!");
   else
@@ -135,14 +142,17 @@ Data& QueueVec<Data>::Head() const
 template <typename Data>
 bool QueueVec<Data>::operator==(const QueueVec<Data>& newVec) const noexcept
 {
+  if(sizeEffettiva != newVec.sizeEffettiva)
+    return false;
+  else
+    return true;
 
-  return false;
 }
 //operator !=
 template <typename Data>
 bool QueueVec<Data>::operator!=(const QueueVec<Data>& newVec) const noexcept
 {
-  return false;
+  return !(*this == newVec);
 }
 
 template <typename Data>
