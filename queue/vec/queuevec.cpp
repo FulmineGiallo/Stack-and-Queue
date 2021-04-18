@@ -23,6 +23,7 @@ QueueVec<Data>& QueueVec<Data>::operator=(const QueueVec<Data>& newVec)
   Vector<Data>::operator=(newVec);
   testa = newVec.testa;
   coda = newVec.coda;
+  sizeEffettiva = newVec.sizeEffettiva;
   return *this;
 }
 //move assignment
@@ -32,6 +33,7 @@ QueueVec<Data>& QueueVec<Data>::operator=(QueueVec<Data>&& newVec) noexcept
   Vector<Data>::operator=(std::move(newVec));
   testa = newVec.testa;
   coda = newVec.coda;
+  sizeEffettiva = newVec.sizeEffettiva;
   return *this;
 }
 
@@ -39,14 +41,20 @@ QueueVec<Data>& QueueVec<Data>::operator=(QueueVec<Data>&& newVec) noexcept
 template<typename Data>
 QueueVec<Data>::QueueVec(const QueueVec<Data>& newVec):Vector<Data>(newVec)
 {
-
+  testa = newVec.testa;
+  coda  = newVec.coda;
+  sizeEffettiva = newVec.sizeEffettiva;
   //la size la fa nel costruttore di vector<int> v;
 }
 
 //move constructor
 template <typename Data>
-QueueVec<Data>::QueueVec(QueueVec<Data>&& vec) noexcept
+QueueVec<Data>::QueueVec(QueueVec<Data>&& newVec) noexcept
 {
+  std::swap(Elements, newVec.Elements);
+  std::swap(testa, newVec.testa);
+  std::swap(coda, newVec.testa);
+  std::swap(sizeEffettiva, newVec.sizeEffettiva);
 
 }
 
