@@ -55,7 +55,7 @@ QueueVec<Data>::QueueVec(QueueVec<Data>&& vec) noexcept
 template <typename Data>
 void QueueVec<Data>::Enqueue(const Data& val)
 {
-  if(coda % Vector<Data>::Size()  == testa)
+  if(coda % Vector<Data>::Size() == testa)
     Expand();
     if(testa == coda)
     {
@@ -194,7 +194,30 @@ void QueueVec<Data>::Expand()
 template <typename Data>
 void QueueVec<Data>::Reduce()
 {
+  Vector<Data> v(size - (size / 4));
+  int i = 0;
+  if(coda < Vector<Data>::Size())
+  {
+    for(unsigned int start = testa; start < Vector<Data>::Size(); start++)
+    {
+      v[i] = Elements[start];
+      i++;
+    }
+  }
+  else
+  {
+    for(unsigned int start = coda; start < testa; start++)
+    {
+      v[i] = Elements[start];
+      i++;
+    }
+  }
 
+  Vector<Data>::operator=(v);
+  testa = 0;
+  coda = sizeEffettiva;
+  size = v.Size();
+  v.Clear();
 }
 /* ************************************************************************** */
 
