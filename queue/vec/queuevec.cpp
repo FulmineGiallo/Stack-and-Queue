@@ -11,11 +11,9 @@ QueueVec<Data>::QueueVec() //costruttore senza parametri
 }
 
 template<typename Data>
-QueueVec<Data>::QueueVec(const LinearContainer<Data>& con):Vector<Data>::Vector(con)
+QueueVec<Data>::QueueVec(const LinearContainer<Data>& con)
 {
-  testa = 0;
-  coda = con.Size();
-  sizeEffettiva = con.Size();
+
 }
 
 //Copy assignment
@@ -182,7 +180,7 @@ bool QueueVec<Data>::operator==(const QueueVec<Data>& newVec) const noexcept
 
       for(int i = newVec.coda; i < newVec.testa; i++)
       {
-        v1[j] = newVec.Elements[i];
+        v2[j] = newVec.Elements[i];
         j++;
       }
     }
