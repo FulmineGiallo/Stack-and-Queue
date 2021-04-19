@@ -26,9 +26,6 @@ protected:
 
   using Vector<Data>::Elements;
 
-
-
-
 public:
   int testa = 0;
   int coda  = 0;

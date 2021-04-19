@@ -15,7 +15,7 @@ QueueVec<Data>::QueueVec(const LinearContainer<Data>& con):Vector<Data>::Vector(
 {
   testa = 0;
   coda = con.Size();
-  sizeEffettiva = con.Size() - 1;
+  sizeEffettiva = con.Size();
 }
 
 //Copy assignment
@@ -142,11 +142,65 @@ Data& QueueVec<Data>::Head() const
 template <typename Data>
 bool QueueVec<Data>::operator==(const QueueVec<Data>& newVec) const noexcept
 {
-  if(sizeEffettiva != newVec.sizeEffettiva)
-    return false;
-  else
-    return true;
+  int x;
+  if(sizeEffettiva == newVec.sizeEffettiva)
+  {
+    Vector<Data> v1(sizeEffettiva);
+    Vector<Data> v2(sizeEffettiva);
+    int j = 0;
+    if(coda < testa)
+    {
+      for(int i = testa; i < size; i++)
+      {
+        v1[j] = Elements[i];
+        j++;
+      }
 
+
+      for(int i = coda; i < testa; i++)
+      {
+        v1[j] = Elements[i];
+        j++;
+      }
+    }
+    if(coda > testa)
+    {
+      for(int i = testa; i < coda; i++)
+      {
+        v1[j] = Elements[i];
+        j++;
+      }
+    }
+    j = 0;
+    if(newVec.coda < newVec.testa)
+    {
+      for(unsigned int i = newVec.testa; i < newVec.size; i++)
+      {
+        v2[j] = newVec.Elements[i];
+        j++;
+      }
+
+      for(int i = newVec.coda; i < newVec.testa; i++)
+      {
+        v1[j] = newVec.Elements[i];
+        j++;
+      }
+    }
+    if(newVec.coda > newVec.testa)
+    {
+      for(int i = newVec.testa; i < newVec.coda; i++)
+        {
+          v2[j] = newVec.Elements[i];
+          j++;
+        }
+    }
+
+    x = (v1 == v2);
+    if(x==0)  return false;
+    else      return true;
+  }
+  else
+    return false;
 }
 //operator !=
 template <typename Data>
