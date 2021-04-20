@@ -11,9 +11,11 @@ QueueVec<Data>::QueueVec() //costruttore senza parametri
 }
 
 template<typename Data>
-QueueVec<Data>::QueueVec(const LinearContainer<Data>& con)
+QueueVec<Data>::QueueVec(const LinearContainer<Data>& con):Vector<Data>::Vector(con)
 {
-
+  testa = 0;
+  coda = con.Size();
+  sizeEffettiva = con.Size();
 }
 
 //Copy assignment
@@ -44,7 +46,7 @@ QueueVec<Data>::QueueVec(const QueueVec<Data>& newVec):Vector<Data>(newVec)
   testa = newVec.testa;
   coda  = newVec.coda;
   sizeEffettiva = newVec.sizeEffettiva;
-  //la size la fa nel costruttore di vector<int> v;
+
 }
 
 //move constructor
@@ -53,7 +55,7 @@ QueueVec<Data>::QueueVec(QueueVec<Data>&& newVec) noexcept
 {
   std::swap(Elements, newVec.Elements);
   std::swap(testa, newVec.testa);
-  std::swap(coda, newVec.testa);
+  std::swap(coda, newVec.coda);
   std::swap(sizeEffettiva, newVec.sizeEffettiva);
 
 }
@@ -148,19 +150,18 @@ bool QueueVec<Data>::operator==(const QueueVec<Data>& newVec) const noexcept
     int j = 0;
     if(coda < testa)
     {
-      for(int i = testa; i < size; i++)
+      for(int i = testa; i < Vector<Data>::Size(); i++)
       {
         v1[j] = Elements[i];
         j++;
       }
-
-
-      for(int i = coda; i < testa; i++)
+      for(int i = (coda - 1); i < testa; i++)
       {
         v1[j] = Elements[i];
         j++;
       }
     }
+    j = 0;
     if(coda > testa)
     {
       for(int i = testa; i < coda; i++)
@@ -178,12 +179,13 @@ bool QueueVec<Data>::operator==(const QueueVec<Data>& newVec) const noexcept
         j++;
       }
 
-      for(int i = newVec.coda; i < newVec.testa; i++)
+      for(int i = (newVec.coda - 1); i < newVec.testa; i++)
       {
         v2[j] = newVec.Elements[i];
         j++;
       }
     }
+    j = 0;
     if(newVec.coda > newVec.testa)
     {
       for(int i = newVec.testa; i < newVec.coda; i++)
@@ -194,6 +196,8 @@ bool QueueVec<Data>::operator==(const QueueVec<Data>& newVec) const noexcept
     }
 
     x = (v1 == v2);
+    v1.Clear();
+    v2.Clear();
     if(x==0)  return false;
     else      return true;
   }
@@ -244,16 +248,27 @@ void QueueVec<Data>::Expand()
 
   //Copia il vecchio Elements nel nuovo v, e gestire gli indici
   int i = 0;
-  for(unsigned int start = testa; start < Vector<Data>::Size(); start++)
+  if(coda < testa)
   {
-    v[i] = Elements[start];
-    i++;
+    for(unsigned int start = testa; start < Vector<Data>::Size(); start++)
+    {
+      v[i] = Elements[start];
+      i++;
+    }
+    for(unsigned int start = 0; start < coda; start++)
+    {
+      v[i] = Elements[start];
+      i++;
+    }
   }
-  for(unsigned int start = coda; start < testa; start++)
-  {
-    v[i] = Elements[start];
-    i++;
-  }
+  i = 0;
+  if( coda > testa)
+    for(unsigned int start = testa; start < coda; start++)
+    {
+      v[i] = Elements[start];
+      i++;
+    }
+
   Vector<Data>::operator=(v);
   testa = 0;
   coda = sizeEffettiva;
@@ -276,6 +291,7 @@ void QueueVec<Data>::Reduce()
   }
   else
   {
+    i = 0;
     for(unsigned int start = coda; start < testa; start++)
     {
       v[i] = Elements[start];
