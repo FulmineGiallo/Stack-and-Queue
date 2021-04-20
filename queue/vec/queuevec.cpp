@@ -11,11 +11,12 @@ QueueVec<Data>::QueueVec() //costruttore senza parametri
 }
 
 template<typename Data>
-QueueVec<Data>::QueueVec(const LinearContainer<Data>& con):Vector<Data>::Vector(con)
+QueueVec<Data>::QueueVec(const LinearContainer<Data>& con)
 {
-  testa = 0;
-  coda = con.Size();
-  sizeEffettiva = con.Size();
+  Vector<Data>::Resize(2);
+  for(unsigned long i = 0; i < con.Size(); i++)
+    Enqueue(con[i]);
+
 }
 
 //Copy assignment
@@ -67,18 +68,11 @@ void QueueVec<Data>::Enqueue(const Data& val)
 {
     if(sizeEffettiva == Vector<Data>::Size())
       Expand();
-    if(testa == coda)
-    {
-      Elements[testa] = std::move(val);
-      coda++;
-    }
-  else
-  {
-    coda = ((coda) % Vector<Data>::Size());
-    Elements[coda] = val;
+
     coda++;
-  }
-  sizeEffettiva++;
+    coda = (coda % Vector<Data>::Size());
+    Elements[coda] = val;
+    sizeEffettiva++;
 }
 
 //move PUSH
@@ -87,34 +81,26 @@ void QueueVec<Data>::Enqueue(Data&& val) noexcept
 {
     if(sizeEffettiva == Vector<Data>::Size())
       Expand();
-    if(testa == coda)
-    {
-      Elements[testa] = std::move(val);
-      coda++;
-    }
-    else
-    {
-      coda = ((coda) % Vector<Data>::Size());
-      Elements[coda] = std::move(val);
-      coda++;
-    }
+
+    coda++;
+    coda = (coda % Vector<Data>::Size());
+    Elements[coda] = std::move(val);
     sizeEffettiva++;
 }
 
 template <typename Data>
 void QueueVec<Data>::Dequeue()
 {
-  //Aggiungere il Reduce();
-  if(sizeEffettiva == size / 2)
-  {
-    Reduce();
-  }
+  // if(sizeEffettiva == size / 2)
+  // {
+  //   Reduce();
+  // }
   if(sizeEffettiva == 0)
     throw std::length_error("Impossibile accedere al primo elemento di uno Coda vuoto!");
   else
   {
-    testa = (testa) % Vector<Data>::Size();
     testa++;
+    testa = (testa) % Vector<Data>::Size();
     sizeEffettiva--;
   }
 }
@@ -142,67 +128,27 @@ Data& QueueVec<Data>::Head() const
 template <typename Data>
 bool QueueVec<Data>::operator==(const QueueVec<Data>& newVec) const noexcept
 {
-  int x;
-  if(sizeEffettiva == newVec.sizeEffettiva)
-  {
-    Vector<Data> v1(sizeEffettiva);
-    Vector<Data> v2(sizeEffettiva);
-    int j = 0;
-    if(coda < testa)
-    {
-      for(int i = testa; i < Vector<Data>::Size(); i++)
-      {
-        v1[j] = Elements[i];
-        j++;
-      }
-      for(int i = (coda - 1); i < testa; i++)
-      {
-        v1[j] = Elements[i];
-        j++;
-      }
-    }
-    j = 0;
-    if(coda > testa)
-    {
-      for(int i = testa; i < coda; i++)
-      {
-        v1[j] = Elements[i];
-        j++;
-      }
-    }
-    j = 0;
-    if(newVec.coda < newVec.testa)
-    {
-      for(unsigned int i = newVec.testa; i < newVec.size; i++)
-      {
-        v2[j] = newVec.Elements[i];
-        j++;
-      }
 
-      for(int i = (newVec.coda - 1); i < newVec.testa; i++)
-      {
-        v2[j] = newVec.Elements[i];
-        j++;
-      }
-    }
-    j = 0;
-    if(newVec.coda > newVec.testa)
+    if(sizeEffettiva == newVec.sizeEffettiva)
     {
-      for(int i = newVec.testa; i < newVec.coda; i++)
+      int i = testa;
+      int j = newVec.testa;
+      while(i != coda)
+      {
+        if(Elements[i] != Elements[j])
+          return false;
+        else
         {
-          v2[j] = newVec.Elements[i];
+          i++;
+          i = i % Vector<Data>::Size();
           j++;
+          j = j % newVec.Vector<Data>::Size();
         }
+      }
+      return true;
     }
-
-    x = (v1 == v2);
-    v1.Clear();
-    v2.Clear();
-    if(x==0)  return false;
-    else      return true;
-  }
-  else
-    return false;
+    else
+      return false;
 }
 //operator !=
 template <typename Data>
@@ -245,33 +191,32 @@ void QueueVec<Data>::Expand()
   //Se testa == coda, vettore vuoto.
   //Se avessimo 0 1 2 3 --> vuoi inserire di nuovo in coda, quindi if(coda (mod) == Vectror<Data>::Size()) Exapand();
   //Quindi 0 1 2 3 4 5 6 7 --> 3 Dequeue() --> null null null 3 4 5 6 7
-
-  //Copia il vecchio Elements nel nuovo v, e gestire gli indici
-  int i = 0;
-  if(coda < testa)
+  int j = 0;
+  if(coda > testa)
   {
-    for(unsigned int start = testa; start < Vector<Data>::Size(); start++)
+    for(unsigned long i = testa; i <= coda; i++)
     {
-      v[i] = Elements[start];
-      i++;
-    }
-    for(unsigned int start = 0; start < coda; start++)
-    {
-      v[i] = Elements[start];
-      i++;
+      v[j] = Elements[i];
+      j++;
     }
   }
-  i = 0;
-  if( coda > testa)
-    for(unsigned int start = testa; start < coda; start++)
+  if(coda < testa)
+  {
+    for(unsigned long i = testa; i < Vector<Data>::Size(); i++)
     {
-      v[i] = Elements[start];
-      i++;
+      v[j] = Elements[i];
+      j++;
     }
+    for(unsigned long i = 0; i <= coda; i++)
+    {
+      v[j] = Elements[i];
+      j++;
+    }
+  }
 
   Vector<Data>::operator=(v);
   testa = 0;
-  coda = sizeEffettiva;
+  coda = sizeEffettiva - 1;
   size = v.Size();
   v.Clear();
 
@@ -280,28 +225,31 @@ template <typename Data>
 void QueueVec<Data>::Reduce()
 {
   Vector<Data> v(size - (size / 4));
-  int i = 0;
-  if(coda < Vector<Data>::Size())
+  int j = 0;
+  if(coda > testa)
   {
-    for(unsigned int start = testa; start < Vector<Data>::Size(); start++)
+    for(unsigned long i = testa; i <= coda; i++)
     {
-      v[i] = Elements[start];
-      i++;
+      v[j] = Elements[i];
+      j++;
     }
   }
-  else
+  if(coda < testa)
   {
-    i = 0;
-    for(unsigned int start = coda; start < testa; start++)
+    for(unsigned long i = testa; i < Vector<Data>::Size(); i++)
     {
-      v[i] = Elements[start];
-      i++;
+      v[j] = Elements[i];
+      j++;
+    }
+    for(unsigned long i = 0; i <= coda; i++)
+    {
+      v[j] = Elements[i];
+      j++;
     }
   }
-
   Vector<Data>::operator=(v);
   testa = 0;
-  coda = sizeEffettiva;
+  coda = sizeEffettiva - 1;
   size = v.Size();
   v.Clear();
 }

@@ -28,7 +28,7 @@ protected:
 
 public:
   int testa = 0;
-  int coda  = 0;
+  int coda  = -1;
   using Vector<Data>::size;
   unsigned long sizeEffettiva = 0;
   // Default constructor

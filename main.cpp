@@ -18,48 +18,26 @@ int main()
   std::cout << "Lasd Libraries 2020" << std::endl;
   lasdtest();
   //
-  // lasd::QueueVec<int> coda;
-  // coda.Enqueue(1);
-  // coda.Enqueue(1);
-  // coda.Enqueue(1);
-  // coda.Enqueue(1);
-  // cout << "Testa : " << coda.testa << endl;
-  // cout << "Coda  : " << coda.coda << endl;
-  // cout << "Size Effettiva : "<< coda.sizeEffettiva << endl;
-  // cout << "Size VETTORE : "<< coda.size << endl;
-  // //
+  // lasd::QueueVec<double> coda;
+  // coda.Enqueue(5.9);
+  // coda.Enqueue(4.4);
+  // coda.Enqueue(9.5);
+  //
+  // cout << "SIZE EFFTTIVA: " << coda.Size() << endl;
+  // cout << "TESTA : " << coda.testa << endl;
+  // cout << "CODA : " << coda.coda << endl;
+  // cout << coda.HeadNDequeue() << endl;
+  // cout << "SIZE EFFTTIVA: " << coda.Size() << endl;
+  // cout << "TESTA : " << coda.testa << endl;
+  // cout << "CODA : " << coda.coda << endl;
+  // cout << coda.Head() << endl;
   // coda.Dequeue();
-  // coda.Dequeue();
-  // coda.Enqueue(1);
-  // coda.Dequeue();
-  // coda.Dequeue();
-  // coda.Dequeue();
-  // //
-  // // // coda.Dequeue();
-  // // // coda.Dequeue();
-  // // //
-  // cout << "Testa : " << coda.testa << endl;
-  // cout << "Coda  : " << coda.coda << endl;
-  // cout << "Size Effettiva : "<< coda.sizeEffettiva << endl;
-  // cout << "Size VETTORE : "<< coda.size << endl;
+  // cout << "SIZE EFFTTIVA: " << coda.Size() << endl;
+  // cout << "TESTA : " << coda.testa << endl;
+  // cout << "CODA : " << coda.coda << endl;
+  // cout << coda.Head() << endl;
+  // cout << "TESTA : " << coda.testa << endl;
+  // cout << "CODA : " << coda.coda << endl;
 
-  //Test ==
-  // lasd::QueueVec<int> v1;
-  // lasd::QueueVec<int> v2;
-  // v1.Enqueue(1);
-  // v2.Enqueue(1);
-  // v1.Enqueue(2);
-  // v2.Enqueue(3);
-  // cout << (v1 == v2) << endl;
-  //
-  // lasd::Vector<string> v(2);
-  // v[0] = "A";
-  // v[1] = "B";
-  //
-  // lasd::QueueVec<string> queue(v);
-  // cout <<"size effettiva: " << queue.sizeEffettiva << endl;
-  // cout <<"Coda: " << queue.coda << endl;
-  // cout << queue.HeadNDequeue() << endl;
-  // cout << queue.HeadNDequeue() << endl;
   return 0;
 }
