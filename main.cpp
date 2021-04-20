@@ -17,7 +17,7 @@ int main()
 {
   std::cout << "Lasd Libraries 2020" << std::endl;
   lasdtest();
-  //
+
   // lasd::QueueVec<double> coda;
   // coda.Enqueue(5.9);
   // coda.Enqueue(4.4);

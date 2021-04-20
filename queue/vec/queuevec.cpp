@@ -91,10 +91,10 @@ void QueueVec<Data>::Enqueue(Data&& val) noexcept
 template <typename Data>
 void QueueVec<Data>::Dequeue()
 {
-  // if(sizeEffettiva == size / 2)
-  // {
-  //   Reduce();
-  // }
+  if(sizeEffettiva == size / 2)
+  {
+    Reduce();
+  }
   if(sizeEffettiva == 0)
     throw std::length_error("Impossibile accedere al primo elemento di uno Coda vuoto!");
   else
@@ -128,7 +128,6 @@ Data& QueueVec<Data>::Head() const
 template <typename Data>
 bool QueueVec<Data>::operator==(const QueueVec<Data>& newVec) const noexcept
 {
-
     if(sizeEffettiva == newVec.sizeEffettiva)
     {
       int i = testa;
@@ -249,7 +248,7 @@ void QueueVec<Data>::Reduce()
   }
   Vector<Data>::operator=(v);
   testa = 0;
-  coda = sizeEffettiva - 1;
+  coda = sizeEffettiva;
   size = v.Size();
   v.Clear();
 }
