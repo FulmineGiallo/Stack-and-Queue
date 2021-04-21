@@ -76,7 +76,7 @@ void StackVec<Data>::Push(Data&& val) noexcept
 template <typename Data>
 void StackVec<Data>::Pop()
 {
-  if((indice + 1)== (size/2))
+  if((indice + 1) == (size/2))
   {
     Reduce();
   }

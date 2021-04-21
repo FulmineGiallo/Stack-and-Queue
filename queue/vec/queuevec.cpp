@@ -7,7 +7,9 @@ template<typename Data>
 QueueVec<Data>::QueueVec() //costruttore senza parametri
 {
   Vector<Data>::Resize(2);
-
+  testa = 0;
+  sizeEffettiva = 0;
+  coda = -1;
 }
 
 template<typename Data>
@@ -17,12 +19,7 @@ QueueVec<Data>::QueueVec(const LinearContainer<Data>& con)
   for(unsigned long i = 0; i < con.Size(); i++)
   {
       Enqueue(con[i]);
-      std::cout << "Faccio l'enqueue di " << con[i] << std::endl;
   }
-  std::cout <<"Testa: "<< testa << std::endl;
-  std::cout <<"Coda: "<< coda << std::endl;
-  std::cout <<"Size: "<< sizeEffettiva << std::endl;
-  std::cout <<"SizeVettore: "<< size << std::endl;
 }
 
 //Copy assignment
@@ -72,6 +69,8 @@ QueueVec<Data>::QueueVec(QueueVec<Data>&& newVec) noexcept
 template <typename Data>
 void QueueVec<Data>::Enqueue(const Data& val)
 {
+    if(testa == -1)
+      testa = 0;
     if(sizeEffettiva == Vector<Data>::Size())
       Expand();
 
@@ -85,6 +84,8 @@ void QueueVec<Data>::Enqueue(const Data& val)
 template <typename Data>
 void QueueVec<Data>::Enqueue(Data&& val) noexcept
 {
+    if(testa == -1)
+      testa = 0;
     if(sizeEffettiva == Vector<Data>::Size())
       Expand();
 
@@ -182,9 +183,11 @@ void QueueVec<Data>::Clear()
 {
   Vector<Data>::Clear();
   Vector<Data>::Resize(2);
-  testa = 0;
-  coda = 0;
+
+  testa = -1;
+  coda = -1;
   sizeEffettiva = 0;
+
 }
 
 template <typename Data>

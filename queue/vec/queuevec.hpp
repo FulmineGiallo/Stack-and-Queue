@@ -24,11 +24,11 @@ private:
 protected:
 
   using Vector<Data>::Elements;
+  using Vector<Data>::size;
 
 
 
 public:
-  using Vector<Data>::size;
   int testa =  0;
   int coda  = -1;
   unsigned long sizeEffettiva = 0;
