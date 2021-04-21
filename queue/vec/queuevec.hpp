@@ -6,7 +6,7 @@
 
 #include "../queue.hpp"
 #include "../../vector/vector.hpp"
-
+#include <iostream>
 /* ************************************************************************** */
 
 namespace lasd {
@@ -23,13 +23,14 @@ private:
 
 protected:
 
-
   using Vector<Data>::Elements;
 
+
+
 public:
-  int testa = 0;
-  int coda  = -1;
   using Vector<Data>::size;
+  int testa =  0;
+  int coda  = -1;
   unsigned long sizeEffettiva = 0;
   // Default constructor
   QueueVec();

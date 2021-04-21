@@ -15,8 +15,14 @@ QueueVec<Data>::QueueVec(const LinearContainer<Data>& con)
 {
   Vector<Data>::Resize(2);
   for(unsigned long i = 0; i < con.Size(); i++)
-    Enqueue(con[i]);
-
+  {
+      Enqueue(con[i]);
+      std::cout << "Faccio l'enqueue di " << con[i] << std::endl;
+  }
+  std::cout <<"Testa: "<< testa << std::endl;
+  std::cout <<"Coda: "<< coda << std::endl;
+  std::cout <<"Size: "<< sizeEffettiva << std::endl;
+  std::cout <<"SizeVettore: "<< size << std::endl;
 }
 
 //Copy assignment
@@ -91,7 +97,7 @@ void QueueVec<Data>::Enqueue(Data&& val) noexcept
 template <typename Data>
 void QueueVec<Data>::Dequeue()
 {
-  if(sizeEffettiva == size / 2)
+  if(sizeEffettiva <= size / 2)
   {
     Reduce();
   }
@@ -248,7 +254,7 @@ void QueueVec<Data>::Reduce()
   }
   Vector<Data>::operator=(v);
   testa = 0;
-  coda = sizeEffettiva;
+  coda = sizeEffettiva - 1;
   size = v.Size();
   v.Clear();
 }
