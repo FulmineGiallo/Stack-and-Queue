@@ -11,36 +11,20 @@ using namespace std;
 
 int main()
 {
+  int scelta = -1;
   std::cout << "Lasd Libraries 2020" << std::endl;
-  lasdtest();
-  // // //
-  // lasd::QueueVec<int> coda;
-  // coda.Enqueue(1);
-  // coda.Enqueue(2);
-  // coda.Enqueue(3);
-  // coda.Enqueue(4);
-  // // //
-  // cout << "Size EFF: "  << coda.Size() << endl;
-  // // cout << "Size VETT: " << coda.size << endl;
-  // cout << "Testa :" << coda.testa << endl;
-  // cout << "Coda :" << coda.coda << endl;
-  // // cout << coda.HeadNDequeue() << endl;
-  // // cout << coda.HeadNDequeue() << endl;
-  //
-  // // cout << "Size VETT: " << coda.size << endl;+
-  // coda.Clear();
-  // cout << "Size EFF: "  << coda.Size() << endl;
-  // cout << "Testa :" << coda.testa << endl;
-  // cout << "Coda :" << coda.coda << endl;
-  // coda.Enqueue(3);
-  // coda.Enqueue(4);
-  // cout << "Size EFF: "  << coda.Size() << endl;
-  // cout << "Testa :" << coda.testa << endl;
-  // cout << "Coda :" << coda.coda << endl;
-  // // cout << coda.HeadNDequeue() << endl;
-  // // cout << "Size EFF: "  << coda.Size() << endl;
-  // // cout << "Size VETT: " << coda.size << endl;
-  // // cout << "Testa :" << coda.testa << endl;
-  // // cout << "Coda :" << coda.coda << endl;
+  std::cout << "Benvenuto nell'esercizio 2 - Guarracino Carmine Matricola: " << std::endl;
+  while(scelta != 0)
+  {
+    std::cout << "1: Per scegliere il MENU LASDTEST del Prof Mogavero" << std::endl;
+    std::cout << "2: Per scegliere il MENU Dei Test personali" << std::endl;
+    std::cout << "0: Per uscire dal programma" << std::endl;
+    cin >> scelta;
+    if(scelta == 1)
+      lasdtest();
+    if(scelta == 2)
+      lasd::MenuUtente();
+  }
+
   return 0;
 }

@@ -25,13 +25,13 @@ protected:
 
   using Vector<Data>::Elements;
   using Vector<Data>::size;
-
-
-
-public:
   int testa =  0;
   int coda  = -1;
   unsigned long sizeEffettiva = 0;
+
+
+public:
+
   // Default constructor
   QueueVec();
 
